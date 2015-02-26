@@ -1,0 +1,13 @@
+PODS:
+  - Expecta (0.3.2)
+  - OCMock (3.1.2)
+
+DEPENDENCIES:
+  - Expecta (~> 0.3)
+  - OCMock (~> 3.1)
+
+SPEC CHECKSUMS:
+  Expecta: ee641011fe10aa1855d487b40e4976dac50ec342
+  OCMock: ecdd510b73ef397f2f97274785c1e87fd147c49f
+
+COCOAPODS: 0.36.0.rc.1
