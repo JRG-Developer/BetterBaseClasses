@@ -29,5 +29,5 @@
 #import <BetterBaseClasses/BaseViewController.h>
 
 // Views
-#import <BetterBaseClasses/BaseTableView.h>
+#import <BetterBaseClasses/BaseTableViewCell.h>
 #import <BetterBaseClasses/BaseView.h>
