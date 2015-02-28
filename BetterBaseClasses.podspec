@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.platform     = :ios
-  s.ios.deployment_target = "7.0"
+  s.ios.deployment_target = "8.0"
   s.name         = "BetterBaseClasses"
   s.version      = "1.0.1"
   s.summary      = "BetterBaseClasses are abstract, base classes meant to be subclassed. They make creating CocoaPods easier."
