@@ -28,6 +28,9 @@
 #import <BetterBaseClasses/BaseTableViewController.h>
 #import <BetterBaseClasses/BaseViewController.h>
 
+#import <BetterBaseClasses/DynamicFontTableViewController.h>
+#import <BetterBaseClasses/DynamicFontViewController.h>
+
 // Views
 #import <BetterBaseClasses/BaseTableViewCell.h>
 #import <BetterBaseClasses/BaseView.h>
