@@ -1,8 +1,8 @@
 //
-//  UIView+BetterBaseClasses.m
+//  DynamicFontTableViewController.m
 //  BetterBaseClasses
 //
-//  Created by Joshua Greene on 2/25/15.
+//  Created by Joshua Greene on 3/2/15.
 //  Copyright (c) 2015 Joshua Greene. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,35 +23,40 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "UIView+BetterBaseClasses.h"
+#import "DynamicFontTableViewController.h"
 
-@implementation UIView (BetterBaseClasses)
+@implementation DynamicFontTableViewController
 
-#pragma mark - Identifiers
+#pragma mark - Object Lifecycle
 
-+ (NSString *)nibName {
-  
-  NSString *identifier = NSStringFromClass([self class]);
-  return identifier.pathExtension.length > 0 ? identifier.pathExtension : identifier;
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-+ (NSBundle *)bundle {
-  return [NSBundle bundleForClass:[self class]];
+#pragma mark - View Lifecycle
+
+- (void)viewDidLoad {
+  
+  [super viewDidLoad];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(contentSizeCategoryDidChange:)
+                                               name:UIContentSizeCategoryDidChangeNotification
+                                             object:nil];
 }
 
-#pragma mark - Instantiation
-
-+ (instancetype)instanceFromNib {
+- (void)contentSizeCategoryDidChange:(NSNotificationCenter *)notification {
   
-  UINib *nib = [self nib];
-  return [[nib instantiateWithOwner:nil options:nil] lastObject];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.tableView reloadData];
+    [self refreshViews];
+  });
 }
 
-+ (UINib *)nib {
-  
-  NSString *nibName = [self nibName];
-  NSBundle *bundle = [self bundle];
-  return [UINib nibWithNibName:nibName bundle:bundle];
+#pragma mark - Dyanmic Font Type
+
+- (void)refreshViews {
+  // This method is meant to be overriden by subclasses.
 }
 
 @end

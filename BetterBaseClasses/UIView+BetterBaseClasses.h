@@ -26,7 +26,7 @@
 #import <UIKit/UIKit.h>
 
 /**
- *  @brief  `UIView+BetterBaseClasses`  adds class convenience methods to instantiate a view defined by `bundle` and `nibName` values.
+ *  @brief  `UIView+BetterBaseClasses` adds class convenience methods to instantiate a view defined by `bundle` and `nibName` values.
  *
  *  @discussion  You should use this category in combination with subclassing either `BaseView` or `BaseTableViewCell`.
  */

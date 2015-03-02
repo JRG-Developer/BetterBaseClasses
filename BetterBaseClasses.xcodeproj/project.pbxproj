@@ -13,6 +13,10 @@
 		424F60331A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 424F60321A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m */; };
 		424F60361A9ACF860041DC64 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 424F60351A9ACF860041DC64 /* BaseTableViewController.m */; };
 		424F60391A9ACF930041DC64 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 424F60381A9ACF930041DC64 /* BaseViewController.m */; };
+		4280FACE1AA51242009F2FE6 /* DynamicFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4280FACD1AA51242009F2FE6 /* DynamicFontViewController.m */; };
+		4280FAD31AA516B4009F2FE6 /* DynamicFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4280FAD21AA516B4009F2FE6 /* DynamicFontTableViewController.m */; };
+		4280FAD71AA51851009F2FE6 /* DynamicFontTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4280FAD61AA51851009F2FE6 /* DynamicFontTableViewControllerTests.m */; };
+		4280FAD91AA51A4A009F2FE6 /* DynamicFontViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4280FAD81AA51A4A009F2FE6 /* DynamicFontViewControllerTests.m */; };
 		428F4EB51A9F0B6B000F4FD7 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F4EB41A9F0B6B000F4FD7 /* BaseTableViewCell.m */; };
 		428F4EBA1A9F0F78000F4FD7 /* BaseTableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F4EB91A9F0F78000F4FD7 /* BaseTableViewTests.m */; };
 		428F4EBB1A9F0F7D000F4FD7 /* BaseViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F4EB71A9F0F65000F4FD7 /* BaseViewTests.m */; };
@@ -58,6 +62,12 @@
 		424F60351A9ACF860041DC64 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		424F60371A9ACF930041DC64 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		424F60381A9ACF930041DC64 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		4280FACC1AA51242009F2FE6 /* DynamicFontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicFontViewController.h; sourceTree = "<group>"; };
+		4280FACD1AA51242009F2FE6 /* DynamicFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicFontViewController.m; sourceTree = "<group>"; };
+		4280FAD11AA516B4009F2FE6 /* DynamicFontTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicFontTableViewController.h; sourceTree = "<group>"; };
+		4280FAD21AA516B4009F2FE6 /* DynamicFontTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicFontTableViewController.m; sourceTree = "<group>"; };
+		4280FAD61AA51851009F2FE6 /* DynamicFontTableViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicFontTableViewControllerTests.m; sourceTree = "<group>"; };
+		4280FAD81AA51A4A009F2FE6 /* DynamicFontViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicFontViewControllerTests.m; sourceTree = "<group>"; };
 		428F4EB31A9F0B6B000F4FD7 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		428F4EB41A9F0B6B000F4FD7 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		428F4EB71A9F0F65000F4FD7 /* BaseViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewTests.m; sourceTree = "<group>"; };
@@ -146,10 +156,8 @@
 		424F603A1A9ACF990041DC64 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				424F60341A9ACF860041DC64 /* BaseTableViewController.h */,
-				424F60351A9ACF860041DC64 /* BaseTableViewController.m */,
-				424F60371A9ACF930041DC64 /* BaseViewController.h */,
-				424F60381A9ACF930041DC64 /* BaseViewController.m */,
+				4280FAD01AA51672009F2FE6 /* Table View Controllers */,
+				4280FACF1AA51667009F2FE6 /* View Controllers */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -171,6 +179,46 @@
 				424F601A1A9ACAB30041DC64 /* BetterBaseClasses.h */,
 			);
 			name = "~Public Headers";
+			sourceTree = "<group>";
+		};
+		4280FACF1AA51667009F2FE6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				424F60371A9ACF930041DC64 /* BaseViewController.h */,
+				424F60381A9ACF930041DC64 /* BaseViewController.m */,
+				4280FACC1AA51242009F2FE6 /* DynamicFontViewController.h */,
+				4280FACD1AA51242009F2FE6 /* DynamicFontViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4280FAD01AA51672009F2FE6 /* Table View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				424F60341A9ACF860041DC64 /* BaseTableViewController.h */,
+				424F60351A9ACF860041DC64 /* BaseTableViewController.m */,
+				4280FAD11AA516B4009F2FE6 /* DynamicFontTableViewController.h */,
+				4280FAD21AA516B4009F2FE6 /* DynamicFontTableViewController.m */,
+			);
+			name = "Table View Controllers";
+			sourceTree = "<group>";
+		};
+		4280FAD41AA517FA009F2FE6 /* Table View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				42A13CD41A9AD76800D76B87 /* BaseTableViewControllerTests.m */,
+				4280FAD61AA51851009F2FE6 /* DynamicFontTableViewControllerTests.m */,
+			);
+			name = "Table View Controllers";
+			sourceTree = "<group>";
+		};
+		4280FAD51AA51800009F2FE6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				42A13CD61A9AD77400D76B87 /* BaseViewControllerTests.m */,
+				4280FAD81AA51A4A009F2FE6 /* DynamicFontViewControllerTests.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		428F4EB61A9F0F48000F4FD7 /* Views */ = {
@@ -204,8 +252,8 @@
 		42A13CD31A9AD76100D76B87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				42A13CD41A9AD76800D76B87 /* BaseTableViewControllerTests.m */,
-				42A13CD61A9AD77400D76B87 /* BaseViewControllerTests.m */,
+				4280FAD41AA517FA009F2FE6 /* Table View Controllers */,
+				4280FAD51AA51800009F2FE6 /* View Controllers */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -362,8 +410,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				428F4EB51A9F0B6B000F4FD7 /* BaseTableViewCell.m in Sources */,
+				4280FACE1AA51242009F2FE6 /* DynamicFontViewController.m in Sources */,
 				42D35B1B1A9EE3D70092B4C1 /* UIView+BetterBaseClasses.m in Sources */,
 				424F60361A9ACF860041DC64 /* BaseTableViewController.m in Sources */,
+				4280FAD31AA516B4009F2FE6 /* DynamicFontTableViewController.m in Sources */,
 				424F60391A9ACF930041DC64 /* BaseViewController.m in Sources */,
 				424F60331A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m in Sources */,
 				42D35B181A9EE20F0092B4C1 /* BaseView.m in Sources */,
@@ -375,6 +425,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D35B1E1A9EF32F0092B4C1 /* UIView+BetterBaseClassesTests.m in Sources */,
+				4280FAD71AA51851009F2FE6 /* DynamicFontTableViewControllerTests.m in Sources */,
+				4280FAD91AA51A4A009F2FE6 /* DynamicFontViewControllerTests.m in Sources */,
 				42A13CD71A9AD77400D76B87 /* BaseViewControllerTests.m in Sources */,
 				428F4EBA1A9F0F78000F4FD7 /* BaseTableViewTests.m in Sources */,
 				42A13CD51A9AD76800D76B87 /* BaseTableViewControllerTests.m in Sources */,
