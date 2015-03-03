@@ -34,3 +34,6 @@
 // Views
 #import <BetterBaseClasses/BaseTableViewCell.h>
 #import <BetterBaseClasses/BaseView.h>
+
+#import <BetterBaseClasses/DynamicFontTableViewCell.h>
+#import <BetterBaseClasses/DynamicFontView.h>
