@@ -64,6 +64,15 @@
 
 #pragma mark - Object Lifecycle - Tests
 
+- (void)test___init___calls_commonInit {
+  
+  // given
+  sut = [sut init];
+  
+  // then
+  OCMVerifyAll(partialMock);
+}
+
 - (void)test___initWithFrame___calls_commonInit {
   
   // when
