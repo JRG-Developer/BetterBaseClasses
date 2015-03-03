@@ -97,6 +97,24 @@
   OCMVerifyAll(notificationCenter);
 }
 
+- (void)test___dealloc___removes_notificationCenterObserver {
+  
+  // given
+  [self givenMockNotificationCenter];
+  OCMExpect([notificationCenter removeObserver:sut]);
+  
+  // when
+  SEL selector = NSSelectorFromString(@"dealloc");
+  
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+  [sut performSelector:selector];
+#pragma clang diagnostic pop
+  
+  // then
+  OCMVerifyAll(notificationCenter);
+}
+
 #pragma mark - Dynamic Font Type - Tests
 
 - (void)test___contentSizeCategoryDidChange___ifIsMainThread_calls_refreshView {

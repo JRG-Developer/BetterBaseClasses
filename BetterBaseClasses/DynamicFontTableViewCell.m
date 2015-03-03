@@ -39,6 +39,10 @@
                                              object:nil];
 }
 
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Dynamic Font Type
 
 - (void)contentSizeCategoryDidChange:(NSNotification *)notification {

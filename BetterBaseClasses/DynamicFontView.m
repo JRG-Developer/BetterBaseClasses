@@ -27,6 +27,8 @@
 
 @implementation DynamicFontView
 
+#pragma mark - Object Lifecycle
+
 - (void)commonInit {
 
   [super commonInit];
@@ -36,6 +38,12 @@
                                                name:UIContentSizeCategoryDidChangeNotification
                                              object:nil];
 }
+
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Dynamic Font Type
 
 - (void)contentSizeCategoryDidChange:(NSNotification *)notification {
   
