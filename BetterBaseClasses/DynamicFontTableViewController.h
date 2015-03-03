@@ -28,7 +28,7 @@
 /**
  *  @brief  `DynamicFontTableViewController` is a subclass of `BaseTableViewController` that provides support for dynamic font types.
  *
- *  @discussion  This is an abstract, base controller meant to be subclassed instead of `UITableViewController`. In addition to the benefits gained by using `BaseTableViewController` (see said class header for more details), this class provides support for dynamic font types via its `refreshViews` method. You should override this method in your custom subclass in order to do font based on the user's preferred font size.
+ *  @discussion  This is an abstract, base controller meant to be subclassed instead of `UITableViewController`. In addition to the benefits gained by using `BaseTableViewController` (see said class header for more details), this class provides support for dynamic font types via its `refreshViews` method. You should override this method in your custom subclass in order to reset fonts, etc based on the user's preferred font size.
  */
 @interface DynamicFontTableViewController : BaseTableViewController
 
