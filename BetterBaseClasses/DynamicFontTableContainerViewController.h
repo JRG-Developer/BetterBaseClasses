@@ -1,8 +1,8 @@
 //
-//  DynamicFontTableViewController.h
+//  DynamicFontTableContainerViewController.h
 //  BetterBaseClasses
 //
-//  Created by Joshua Greene on 3/2/15.
+//  Created by Joshua Greene on 3/4/15.
 //  Copyright (c) 2015 Joshua Greene. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,14 +23,23 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "BaseTableViewController.h"
+#import "BaseViewController.h"
 
 /**
- *  @brief  `DynamicFontTableViewController` is a subclass of `BaseTableViewController` that provides support for dynamic font types.
+ *  @brief  `DynamicFontTableContainerViewController` is a subclass of `BaseViewController` that provides support for dynamic font types.
  *
- *  @discussion  This is an abstract, base controller meant to be subclassed instead of `UITableViewController`. In addition to the benefits gained by using `BaseTableViewController` (see said class header for more details), this class provides support for dynamic font types via its `refreshViews` method. You should override this method in your custom subclass in order to reset fonts, etc based on the user's preferred font size.
+ *  @discussion  This is an abstract, base controller meant to be subclassed instead of `UIViewController`. In addition to the benefits gained by using `BaseViewController` (see said class header for more details), this class provides support for dynamic font types via its `refreshViews` method. You should override this method in your custom subclass in order to reset fonts, etc based on the user's preferred font size.
+ *
+ *  The difference between `DynamicFontTableContainerViewController` and `DynamicFontViewController` is this controller is expected to have a `tableView` has a subview. This is signifiant due to the way responding to font change notifications works- it's dispatched to the main queue to give other views (e.g. table view cells) a chance to update their subviews first before the table view is reloaded.
  */
-@interface DynamicFontTableViewController : BaseTableViewController
+@interface DynamicFontTableContainerViewController : BaseViewController
+
+#pragma mark - Outlets
+
+/**
+ *  @brief  The table view
+ */
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 #pragma mark - Dynamic Font Type
 
@@ -45,7 +54,7 @@
 
 @end
 
-@interface DynamicFontTableViewController (Protected)
+@interface DynamicFontTableContainerViewController (Protected)
 
 /**
  *  @brief  This method is called in response to receiving `UIContentSizeCategoryDidChangeNotification`.

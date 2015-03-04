@@ -1,8 +1,8 @@
 //
-//  BetterBaseControllers.h
-//  BetterBaseControllers
+//  DynamicFontTableContainerViewController.m
+//  BetterBaseClasses
 //
-//  Created by Joshua Greene on 2/22/15.
+//  Created by Joshua Greene on 3/4/15.
 //  Copyright (c) 2015 Joshua Greene. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,20 +23,40 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+#import "DynamicFontTableContainerViewController.h"
 
-// UITableViewController
-#import <BetterBaseClasses/BaseTableViewController.h>
-#import <BetterBaseClasses/DynamicFontTableViewController.h>
+@implementation DynamicFontTableContainerViewController
 
-// UIViewController
-#import <BetterBaseClasses/BaseViewController.h>
-#import <BetterBaseClasses/DynamicFontTableContainerViewController.h>
-#import <BetterBaseClasses/DynamicFontViewController.h>
+#pragma mark - Object Lifecycle
 
-// View
-#import <BetterBaseClasses/BaseView.h>
-#import <BetterBaseClasses/DynamicFontView.h>
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
-// UITableViewCell
-#import <BetterBaseClasses/BaseTableViewCell.h>
-#import <BetterBaseClasses/DynamicFontTableViewCell.h>
+#pragma mark - View Lifecycle
+
+- (void)viewDidLoad {
+  
+  [super viewDidLoad];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(contentSizeCategoryDidChange:)
+                                               name:UIContentSizeCategoryDidChangeNotification
+                                             object:nil];
+}
+
+- (void)contentSizeCategoryDidChange:(NSNotificationCenter *)notification {
+  
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.tableView reloadData];
+    [self refreshViews];
+  });
+}
+
+#pragma mark - Dyanmic Font Type
+
+- (void)refreshViews {
+  // This method is meant to be overriden by subclasses.
+}
+
+@end

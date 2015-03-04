@@ -36,10 +36,10 @@
 
 #import <OCMock/OCMock.h>
 
-@interface BaseTableViewTests : XCTestCase
+@interface BaseTableViewCellTests : XCTestCase
 @end
 
-@implementation BaseTableViewTests {
+@implementation BaseTableViewCellTests {
   
   BaseTableViewCell *sut;
   id partialMock;
