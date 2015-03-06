@@ -83,4 +83,37 @@
  */
 + (instancetype)instanceFromStoryboard;
 
+#pragma mark - Preferred Instance
+
+/**
+ *  @brief  Use this method to get the "preferred" instance.
+ *
+ *  @discussion  This method either returns `instanceFromStoryboard` or `instanceFromNib` depending on the value of `preferStoryboards`.
+ *
+ *  Subclasses may optionally override this method to always return `instanceFromNib` or `instanceFromStoryboard` instead, if desired.
+ *
+ *  @return The "preferred" instance
+ */
++ (instancetype)preferredInstance;
+
+/**
+ *  @brief  Use this method to set whether `preferredInstance` should return `instanceFromStoryboard`, if `YES`, or `instanceFromNib`, if `NO`.
+ *
+ *  @discussion  This value defaults to `NO`.
+ *
+ *  @warning  This value affects *all* view controllers. You should set it to `YES` if your target uses storyboards more often than nibs.
+ *
+ *  @param preferStoryboards  Whether or not storyboards are preferred instead of nibs
+ */
++ (void)setPreferStoryboards:(BOOL)preferStoryboards;
+
+/**
+ *  @brief  Use this method to get whether storyboards are "preferred".
+ *
+ *  @discussion  This affects the behavior of `preferredInstance`.
+ *
+ *  @return `YES` to prefer storyboards or `NO` to prefer nibs
+ */
++ (BOOL)preferStoryboards;
+
 @end

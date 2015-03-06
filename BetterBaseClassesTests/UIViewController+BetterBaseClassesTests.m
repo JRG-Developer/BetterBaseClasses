@@ -59,6 +59,9 @@
 - (void)tearDown {
   
   [mockSutClass stopMocking];
+  
+  [UIViewController setPreferStoryboards:NO];
+  
   [super tearDown];
 }
 
@@ -153,6 +156,54 @@
   
   // when
   UIViewController *actual = [UIViewController instanceFromStoryboard];
+  
+  // then
+  expect(actual).to.equal(expected);
+}
+
+#pragma mark - Preferred Instance - Tests
+
+- (void)test___setPreferStoryboards___YES_setsPreferStoryboardsToYES {
+  
+  // given
+  BOOL expected = YES;
+  
+  // when
+  [UIViewController setPreferStoryboards:expected];
+  
+  // then
+  expect([UIViewController preferStoryboards]).to.beTruthy();
+}
+
+- (void)test___preferredInstance___ifDoesntPrefersStoryboards_returns_instanceFromNib {
+
+  // given
+  [UIViewController setPreferStoryboards:NO];
+  
+  UIViewController *expected = [UIViewController new];
+  [self givenMockSutClass];
+  
+  OCMStub([mockSutClass instanceFromNib]).andReturn(expected);
+  
+  // when
+  UIViewController *actual = [UIViewController preferredInstance];
+  
+  // then
+  expect(actual).to.equal(expected);
+}
+
+- (void)test___preferredInstance___ifPrefersStoryboards_returns_instanceFromStoryboard {
+  
+  // given
+  [UIViewController setPreferStoryboards:YES];
+  
+  UIViewController *expected = [UIViewController new];
+  [self givenMockSutClass];
+  
+  OCMStub([mockSutClass instanceFromStoryboard]).andReturn(expected);
+  
+  // when
+  UIViewController *actual = [UIViewController preferredInstance];
   
   // then
   expect(actual).to.equal(expected);

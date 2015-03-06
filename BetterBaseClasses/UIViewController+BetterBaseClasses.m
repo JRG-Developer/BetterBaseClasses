@@ -25,6 +25,8 @@
 
 #import "UIViewController+BetterBaseClasses.h"
 
+static BOOL BBC_preferStoryboards = NO;
+
 @implementation UIViewController (BetterBaseClasses)
 
 #pragma mark - Identifiers
@@ -60,6 +62,21 @@
   
   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:bundle];
   return [storyboard instantiateViewControllerWithIdentifier:identifier];
+}
+
+#pragma mark - Preferred Instance
+
++ (instancetype)preferredInstance {
+  return [self preferStoryboards] ? [self instanceFromStoryboard] : [self instanceFromNib];
+}
+
++ (void)setPreferStoryboards:(BOOL)preferStoryboards {
+  BBC_preferStoryboards = preferStoryboards;
+}
+
+
++ (BOOL)preferStoryboards {
+  return BBC_preferStoryboards;
 }
 
 @end
