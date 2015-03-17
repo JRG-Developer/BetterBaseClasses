@@ -116,4 +116,15 @@
  */
 + (BOOL)preferStoryboards;
 
+#pragma mark - Object Lifecycle
+
+/**
+ *  @brief  Use this method to perform common initialization, regardless of the designiated initializer used to create the view controller.
+ *
+ *  @discussion  This class leaves it up to subclasses to actually call this method from all designated intializers. If you subclass `BaseViewController`, `BaseTableViewController`, or any subclasses thereof, this has alredy been done for you with the default initializers.
+ *
+ *  @note If you introduce a new designated initializer in your subclass of said classes, you should make sure to call `commonInit` with it.
+ */
+- (void)commonInit __attribute((objc_requires_super));
+
 @end

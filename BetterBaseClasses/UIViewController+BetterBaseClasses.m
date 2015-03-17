@@ -79,4 +79,10 @@ static BOOL BBC_preferStoryboards = NO;
   return BBC_preferStoryboards;
 }
 
+#pragma mark - Object Lifecycle
+
+- (void)commonInit {
+  // This method is meant to be overriden by subclasses.
+}
+
 @end

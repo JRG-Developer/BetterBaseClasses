@@ -27,6 +27,8 @@
 
 @implementation BaseTableViewCell
 
+#pragma mark - Object Lifecycle
+
 - (instancetype)initWithFrame:(CGRect)frame {
   
   self = [super initWithFrame:frame];
@@ -43,10 +45,6 @@
     [self commonInit];
   }
   return self;
-}
-
-- (void)commonInit {
-  // This method is meant to be overriden by subclasses.
 }
 
 @end

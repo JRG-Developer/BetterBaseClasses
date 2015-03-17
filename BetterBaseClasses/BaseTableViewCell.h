@@ -23,7 +23,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import "UIView+BetterBaseClasses.h"
 
 /**
  *  @brief  `BaseView` is an abstract, base class meant to be subclassed instead of `UIView`.
@@ -31,14 +31,5 @@
  *  @dicussion  This class is designed to be used with the `UIView+BetterBaseClasses` category, which adds convenience class instantiation methods.
  */
 @interface BaseTableViewCell : UITableViewCell
-
-/**
- *  @brief  This method is called by all designated initializers.
- *
- *  @discussion Subclasses may override this method to do common setup regardless of the `init` method used to create this controller. Subclasses should make sure to call `[super commonInit]` to allow parent classes to do their setup.
- *
- *  @note If your subclass adds a new designated initializer, you should call this method within it.
- */
-- (void)commonInit __attribute((objc_requires_super));
 
 @end

@@ -36,15 +36,4 @@
  */
 @interface BaseTableViewController : UITableViewController
 
-#pragma mark - Object Lifecycle
-
-/**
- *  @brief  This method is called by all designated initializers.
- *
- *  @discussion Subclasses may override this method to do common setup regardless of the `init` method used to create this controller. Subclasses should make sure to call `[super commonInit]` to allow parent classes to do their setup.
- *
- *  @note If your subclass adds a new designated initializer, you should call this method within it.
- */
-- (void)commonInit __attribute((objc_requires_super));
-
 @end

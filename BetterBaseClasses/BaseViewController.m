@@ -47,8 +47,4 @@
   return self;
 }
 
-- (void)commonInit {
-  // This method is meant to be overriden by subclasses.
-}
-
 @end

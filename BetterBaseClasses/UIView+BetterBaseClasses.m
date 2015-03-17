@@ -54,4 +54,10 @@
   return [UINib nibWithNibName:nibName bundle:bundle];
 }
 
+#pragma mark - Object Lifecycle
+
+- (void)commonInit {
+  // This method is meant to be overriden by subclasses.
+}
+
 @end
