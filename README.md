@@ -58,7 +58,9 @@ For example,
 
     @implementation TestViewController
     
-    - (void)commonInit {      
+    - (void)commonInit {
+
+      [super commonInit];
       _exampleValue = 42;
     }
     
