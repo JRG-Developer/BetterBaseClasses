@@ -24,6 +24,10 @@
 //  THE SOFTWARE.
 
 
+// UITableViewCell
+#import <BetterBaseClasses/BaseTableViewCell.h>
+#import <BetterBaseClasses/DynamicFontTableViewCell.h>
+
 // UITableViewController
 #import <BetterBaseClasses/BaseTableViewController.h>
 #import <BetterBaseClasses/DynamicFontTableViewController.h>
@@ -33,10 +37,6 @@
 #import <BetterBaseClasses/DynamicFontTableContainerViewController.h>
 #import <BetterBaseClasses/DynamicFontViewController.h>
 
-// View
+// UIView
 #import <BetterBaseClasses/BaseView.h>
 #import <BetterBaseClasses/DynamicFontView.h>
-
-// UITableViewCell
-#import <BetterBaseClasses/BaseTableViewCell.h>
-#import <BetterBaseClasses/DynamicFontTableViewCell.h>
