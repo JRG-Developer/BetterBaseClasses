@@ -23,6 +23,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+// App Delegate
+#import <BetterBaseClasses/BaseAppDelegate.h>
 
 // UITableViewCell
 #import <BetterBaseClasses/BaseTableViewCell.h>

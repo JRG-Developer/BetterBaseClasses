@@ -10,5 +10,18 @@ Pod::Spec.new do |s|
   s.source   	   = { :git => "https://github.com/JRG-Developer/BetterBaseClasses.git", :tag => "#{s.version}"}
   s.framework    = "UIKit"
   s.requires_arc = true
-  s.source_files = "BetterBaseClasses/*.{h,m}"
+
+  s.subspec 'Constants' do |ss|
+    ss.source_files = "BetterBaseClasses/Constants/*.{h,m}"
+  end
+
+  s.subspec 'Controllers' do |ss|
+    ss.source_files = "BetterBaseClasses/Controllers/*.{h,m}"
+    ss.dependency 'BetterBaseClasses/Constants'
+  end
+
+  s.subspec 'Views' do |ss|
+    ss.source_files = "BetterBaseClasses/Views/*.{h,m}"
+  end
+
 end
