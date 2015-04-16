@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3FE35FB689106B3088075D05 /* libPods-BetterBaseClassesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A87FA9875A11EAD70EED439 /* libPods-BetterBaseClassesTests.a */; };
+		420A6E8F1AE0640D00068428 /* BaseAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A6E8E1AE0640D00068428 /* BaseAppDelegate.m */; };
+		420A6E951AE067E300068428 /* AppDelegateNotificationKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A6E941AE067E300068428 /* AppDelegateNotificationKeys.m */; };
+		420A6E981AE06EB900068428 /* BaseAppDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A6E971AE06EB900068428 /* BaseAppDelegateTests.m */; };
 		4225106F1AA52EC10078C6BF /* DynamicFontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225106E1AA52EC10078C6BF /* DynamicFontView.m */; };
 		422510751AA533C30078C6BF /* DynamicFontTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 422510741AA533C30078C6BF /* DynamicFontTableViewCell.m */; };
 		422510791AA534D60078C6BF /* DynamicFontTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 422510781AA534D60078C6BF /* DynamicFontTableViewCellTests.m */; };
@@ -58,6 +61,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		420A6E8D1AE0640D00068428 /* BaseAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAppDelegate.h; sourceTree = "<group>"; };
+		420A6E8E1AE0640D00068428 /* BaseAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAppDelegate.m; sourceTree = "<group>"; };
+		420A6E931AE067E300068428 /* AppDelegateNotificationKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegateNotificationKeys.h; sourceTree = "<group>"; };
+		420A6E941AE067E300068428 /* AppDelegateNotificationKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateNotificationKeys.m; sourceTree = "<group>"; };
+		420A6E971AE06EB900068428 /* BaseAppDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAppDelegateTests.m; sourceTree = "<group>"; };
 		4225106D1AA52EC10078C6BF /* DynamicFontView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicFontView.h; sourceTree = "<group>"; };
 		4225106E1AA52EC10078C6BF /* DynamicFontView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicFontView.m; sourceTree = "<group>"; };
 		422510731AA533C30078C6BF /* DynamicFontTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicFontTableViewCell.h; sourceTree = "<group>"; };
@@ -120,6 +128,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		420A6E8C1AE063D500068428 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				420A6E8D1AE0640D00068428 /* BaseAppDelegate.h */,
+				420A6E8E1AE0640D00068428 /* BaseAppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		420A6E901AE0666500068428 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				420A6E931AE067E300068428 /* AppDelegateNotificationKeys.h */,
+				420A6E941AE067E300068428 /* AppDelegateNotificationKeys.m */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		420A6E961AE06E9D00068428 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				420A6E971AE06EB900068428 /* BaseAppDelegateTests.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
 		422510711AA52EEF0078C6BF /* UIView */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +219,7 @@
 			children = (
 				424F603C1A9ACFA00041DC64 /* ~Public Headers */,
 				424F603B1A9ACF9B0041DC64 /* Categories */,
+				420A6E901AE0666500068428 /* Constants */,
 				424F603A1A9ACF990041DC64 /* Controllers */,
 				42D35B151A9EE1E00092B4C1 /* Views */,
 			);
@@ -211,6 +246,7 @@
 		424F603A1A9ACF990041DC64 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				420A6E8C1AE063D500068428 /* AppDelegate */,
 				4280FAD01AA51672009F2FE6 /* UITableViewController */,
 				4280FACF1AA51667009F2FE6 /* UIViewController */,
 			);
@@ -310,6 +346,7 @@
 		42A13CD31A9AD76100D76B87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				420A6E961AE06E9D00068428 /* AppDelegate */,
 				4280FAD41AA517FA009F2FE6 /* UITableViewController */,
 				4280FAD51AA51800009F2FE6 /* UIViewController */,
 			);
@@ -465,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420A6E951AE067E300068428 /* AppDelegateNotificationKeys.m in Sources */,
 				42CD369F1AA7C2D4007CEAA7 /* DynamicFontTableContainerViewController.m in Sources */,
 				422510751AA533C30078C6BF /* DynamicFontTableViewCell.m in Sources */,
 				428F4EB51A9F0B6B000F4FD7 /* BaseTableViewCell.m in Sources */,
@@ -472,6 +510,7 @@
 				4280FACE1AA51242009F2FE6 /* DynamicFontViewController.m in Sources */,
 				42D35B1B1A9EE3D70092B4C1 /* UIView+BetterBaseClasses.m in Sources */,
 				424F60361A9ACF860041DC64 /* BaseTableViewController.m in Sources */,
+				420A6E8F1AE0640D00068428 /* BaseAppDelegate.m in Sources */,
 				4280FAD31AA516B4009F2FE6 /* DynamicFontTableViewController.m in Sources */,
 				424F60391A9ACF930041DC64 /* BaseViewController.m in Sources */,
 				424F60331A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m in Sources */,
@@ -494,6 +533,7 @@
 				4225107B1AA534E80078C6BF /* DynamicFontViewTests.m in Sources */,
 				42A13CD11A9AD75000D76B87 /* UIViewController+BetterBaseClassesTests.m in Sources */,
 				428F4EBB1A9F0F7D000F4FD7 /* BaseViewTests.m in Sources */,
+				420A6E981AE06EB900068428 /* BaseAppDelegateTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
