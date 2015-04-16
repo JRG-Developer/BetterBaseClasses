@@ -1,6 +1,6 @@
 //
 //  BaseViewController.m
-//  BetterBaseControllers
+//  BetterBaseClasses
 //
 //  Created by Joshua Greene on 2/22/15.
 //  Copyright (c) 2015 Joshua Greene. All rights reserved.
