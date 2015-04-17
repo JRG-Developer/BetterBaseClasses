@@ -11,17 +11,19 @@ Pod::Spec.new do |s|
   s.framework    = "UIKit"
   s.requires_arc = true
 
+  s.source_files = "BetterBaseClasses/BetterBaseClasses.h"
+
   s.subspec 'Constants' do |ss|
-    ss.source_files = "BetterBaseClasses/Constants/*.{h,m}"
+    ss.source_files = "BetterBaseClasses/BetterBaseConstants.h", "BetterBaseClasses/Constants/*.{h,m}"
   end
 
   s.subspec 'Controllers' do |ss|
-    ss.source_files = "BetterBaseClasses/Controllers/*.{h,m}"
+    ss.source_files = "BetterBaseClasses/BetterBaseControllers.h", "BetterBaseClasses/Controllers/*.{h,m}"
     ss.dependency 'BetterBaseClasses/Constants'
   end
 
   s.subspec 'Views' do |ss|
-    ss.source_files = "BetterBaseClasses/Views/*.{h,m}"
+    ss.source_files = "BetterBaseClasses/BetterBaseViews.h", "BetterBaseClasses/Views/*.{h,m}"
   end
 
 end
