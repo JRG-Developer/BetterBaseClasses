@@ -27,6 +27,7 @@
 #import "BaseAppDelegate.h"
 
 // Collaborators
+#import "AppDelegateNotificationKeys.h"
 
 // Test Support
 #import <XCTest/XCTest.h>

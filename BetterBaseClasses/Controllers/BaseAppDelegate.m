@@ -24,6 +24,7 @@
 //  THE SOFTWARE.
 
 #import "BaseAppDelegate.h"
+#import "AppDelegateNotificationKeys.h"
 
 @implementation BaseAppDelegate
 

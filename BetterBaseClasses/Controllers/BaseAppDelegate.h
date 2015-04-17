@@ -23,7 +23,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "AppDelegateNotificationKeys.h"
+#import <UIKit/UIKit.h>
 
 /**
  *  @brief  `BaseAppDelegate` is an abstract class meant to be subclassed by your app delegate, instead of `UIResponder` directly.
