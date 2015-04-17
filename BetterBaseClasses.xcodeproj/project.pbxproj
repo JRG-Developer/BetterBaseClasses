@@ -88,6 +88,9 @@
 		4280FAD81AA51A4A009F2FE6 /* DynamicFontViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicFontViewControllerTests.m; sourceTree = "<group>"; };
 		428460081AE07CFF0065B813 /* AppDelegateNotificationKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegateNotificationKeys.h; sourceTree = "<group>"; };
 		428460091AE07CFF0065B813 /* AppDelegateNotificationKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateNotificationKeys.m; sourceTree = "<group>"; };
+		4284600E1AE0843E0065B813 /* BetterBaseControllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BetterBaseControllers.h; sourceTree = "<group>"; };
+		4284600F1AE0846E0065B813 /* BetterBaseConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BetterBaseConstants.h; sourceTree = "<group>"; };
+		428460101AE084960065B813 /* BetterBaseViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BetterBaseViews.h; sourceTree = "<group>"; };
 		428F4EB31A9F0B6B000F4FD7 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		428F4EB41A9F0B6B000F4FD7 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		428F4EB71A9F0F65000F4FD7 /* BaseViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewTests.m; sourceTree = "<group>"; };
@@ -249,6 +252,9 @@
 			isa = PBXGroup;
 			children = (
 				424F601A1A9ACAB30041DC64 /* BetterBaseClasses.h */,
+				4284600F1AE0846E0065B813 /* BetterBaseConstants.h */,
+				4284600E1AE0843E0065B813 /* BetterBaseControllers.h */,
+				428460101AE084960065B813 /* BetterBaseViews.h */,
 			);
 			name = "~Public Headers";
 			sourceTree = "<group>";

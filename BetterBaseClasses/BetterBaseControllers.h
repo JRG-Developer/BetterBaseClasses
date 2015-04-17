@@ -2,7 +2,7 @@
 //  BetterBaseControllers.h
 //  BetterBaseClasses
 //
-//  Created by Joshua Greene on 2/22/15.
+//  Created by Joshua Greene on 4/16/15.
 //  Copyright (c) 2015 Joshua Greene. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,11 +23,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-// Constants
-#import <BetterBaseClasses/BetterBaseConstants.h>
+// App Delegate
+#import <BetterBaseClasses/BaseAppDelegate.h>
 
-// Controllers
-#import <BetterBaseClasses/BetterBaseControllers.h>
+// Table View Controller
+#import <BetterBaseClasses/BaseTableViewController.h>
+#import <BetterBaseClasses/DynamicFontTableViewController.h>
 
-// Views
-#import <BetterBaseClasses/BetterBaseViews.h>
+// View Controller
+#import <BetterBaseClasses/BaseViewController.h>
+#import <BetterBaseClasses/DynamicFontTableContainerViewController.h>
+#import <BetterBaseClasses/DynamicFontViewController.h>

@@ -1,8 +1,8 @@
 //
-//  BetterBaseControllers.h
+//  BetterBaseViews.h
 //  BetterBaseClasses
 //
-//  Created by Joshua Greene on 2/22/15.
+//  Created by Joshua Greene on 4/16/15.
 //  Copyright (c) 2015 Joshua Greene. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,11 +23,10 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-// Constants
-#import <BetterBaseClasses/BetterBaseConstants.h>
+// Table View Cell
+#import <BetterBaseClasses/BaseTableViewCell.h>
+#import <BetterBaseClasses/DynamicFontTableViewCell.h>
 
-// Controllers
-#import <BetterBaseClasses/BetterBaseControllers.h>
-
-// Views
-#import <BetterBaseClasses/BetterBaseViews.h>
+// UIView
+#import <BetterBaseClasses/BaseView.h>
+#import <BetterBaseClasses/DynamicFontView.h>
