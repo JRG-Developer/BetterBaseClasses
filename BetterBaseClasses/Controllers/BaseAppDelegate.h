@@ -34,4 +34,9 @@
  */
 @interface BaseAppDelegate : UIResponder <UIApplicationDelegate>
 
+/**
+ *  @brief  The main application window
+ */
+@property (strong, nonatomic) UIWindow *window;
+
 @end
