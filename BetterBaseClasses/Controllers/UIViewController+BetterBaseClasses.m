@@ -41,6 +41,13 @@ static BOOL BBC_preferStoryboards = NO;
   return identifier.pathExtension.length > 0 ? identifier.pathExtension : identifier;
 }
 
++ (UIStoryboard *)storyboard {
+  
+  NSBundle *bundle = [self bundle];
+  NSString *name = [self storyboardName];
+  return [UIStoryboard storyboardWithName:name bundle:bundle];
+}
+
 + (NSString *)storyboardName {  
   return @"Main";
 }
@@ -56,11 +63,8 @@ static BOOL BBC_preferStoryboards = NO;
 
 + (instancetype)instanceFromStoryboard {
   
-  NSBundle *bundle = [[self class] bundle];
   NSString *identifier = [[self class] identifier];
-  NSString *storyboardName = [[self class] storyboardName];
-  
-  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:bundle];
+  UIStoryboard *storyboard = [[self class] storyboard];
   return [storyboard instantiateViewControllerWithIdentifier:identifier];
 }
 

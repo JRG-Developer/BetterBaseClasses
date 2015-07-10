@@ -40,24 +40,31 @@
 @end
 
 @implementation UIViewController_BetterBaseClassesTests {
-
+ 
+  NSBundle *bundle;
+  NSString *identifier;
   NSString *storyboardName;
   
-  id bundleClass;
-  id storyboardClass;
+  id mockBundle;
+  id mockStoryboard;
   id mockSutClass;
 }
 
 #pragma mark - Test Lifecycle
 
-- (void)setUp {
-  
+- (void)setUp
+{
   [super setUp];
-  storyboardName = @"Main";
+
+  bundle = [UIViewController bundle];
+  identifier = [UIViewController identifier];
+  storyboardName = [UIViewController storyboardName];
 }
 
 - (void)tearDown {
   
+  [mockBundle stopMocking];
+  [mockStoryboard stopMocking];
   [mockSutClass stopMocking];
   
   [UIViewController setPreferStoryboards:NO];
@@ -68,15 +75,15 @@
 #pragma mark - Given
 
 - (void)givenMockBundle {
-  bundleClass = OCMClassMock([NSBundle class]);
+  mockBundle = OCMClassMock([NSBundle class]);
+}
+
+- (void)givenMockStoryboard {
+  mockStoryboard = OCMClassMock([UIStoryboard class]);
 }
 
 - (void)givenMockSutClass {
   mockSutClass = OCMClassMock([UIViewController class]);
-}
-
-- (void)givenMockStoryboard {
-  storyboardClass = OCMClassMock([UIStoryboard class]);
 }
 
 #pragma mark - Identifiers - Tests
@@ -86,7 +93,7 @@
   // given
   NSBundle *expected = [NSBundle bundleForClass:[self class]];
   [self givenMockBundle];
-  OCMExpect([bundleClass bundleForClass:[UIViewController class]]).andReturn(expected);
+  OCMExpect([mockBundle bundleForClass:[UIViewController class]]).andReturn(expected);
   
   // when
   NSBundle *actual = [UIViewController bundle];
@@ -112,13 +119,29 @@
   // TO-DO:  Figure out an easy way to test this...
 }
 
+- (void)test___storyboard___returnsStoryboardUsingStoryboardNameAndBundle {
+  
+  // given
+  [self givenMockStoryboard];
+  OCMStub(ClassMethod([mockStoryboard storyboardWithName:storyboardName bundle:bundle])).andReturn(mockStoryboard);
+  
+  // when
+  UIStoryboard *actual = [UIViewController storyboard];
+  
+  // then
+  expect(actual).to.equal(mockStoryboard);
+}
+
 - (void)test___storyboardName___returns_infoDict_UIMainStoryboardFile {
+  
+  // given
+  NSString *expected = [UIViewController storyboardName];
   
   // when
   NSString *actual = [UIViewController storyboardName];
   
   // then
-  expect(actual).to.equal(storyboardName);
+  expect(actual).to.equal(expected);
 }
 
 #pragma mark - Instantiation - Tests
@@ -126,9 +149,7 @@
 - (void)test___instanceFromNib___calls_initWithNibName_bundle {
   
   // given
-  NSBundle *bundle = [UIViewController bundle];
   NSString *nibName = [UIViewController identifier];
-  
   UIViewController *expected = [UIViewController new];
   
   [self givenMockSutClass];
@@ -145,14 +166,11 @@
 - (void)test___instanceFromStoryboard___instantiatesViewControllerFromStoryboard {
   
   // given
-  NSBundle *bundle = [UIViewController bundle];
-  NSString *identifier = [UIViewController identifier];
-  
   UIViewController *expected = [UIViewController new];
   
   [self givenMockStoryboard];
-  OCMStub([storyboardClass storyboardWithName:storyboardName bundle:bundle]).andReturn(storyboardClass);
-  OCMStub([storyboardClass instantiateViewControllerWithIdentifier:identifier]).andReturn(expected);
+  OCMStub([mockStoryboard storyboardWithName:storyboardName bundle:bundle]).andReturn(mockStoryboard);
+  OCMStub([mockStoryboard instantiateViewControllerWithIdentifier:identifier]).andReturn(expected);
   
   // when
   UIViewController *actual = [UIViewController instanceFromStoryboard];

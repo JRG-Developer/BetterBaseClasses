@@ -53,13 +53,23 @@
 + (NSString *)identifier;
 
 /**
- *  @brief  Use this method to specify the storyboard name that `initFromStoryboard` should load.
+ *  @brief  Use this method to get the storyboard that `instanceFromStoryboard` should use.
+ *
+ *  @discussion  This method uses `storyboardName` and `bundle` to create the storyboard.
+ *
+ *  @return The storyboard to use to load the view controller
+ */
++ (UIStoryboard *)storyboard;
+
+/**
+ *  @brief  Use this method to specify the storyboard name that `instanceFromStoryboard` should use.
  *
  *  @discussion This method returns "Main" by default.
  *
- *  @return The storyboard name to load
+ *  @return The storyboard name to use to load the view controller
  */
 + (NSString *)storyboardName;
+
 
 #pragma mark - Instantiation
 
