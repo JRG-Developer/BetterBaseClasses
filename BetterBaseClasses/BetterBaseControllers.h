@@ -24,13 +24,13 @@
 //  THE SOFTWARE.
 
 // App Delegate
-#import <BetterBaseClasses/BaseAppDelegate.h>
+#import "BaseAppDelegate.h"
 
 // Table View Controller
-#import <BetterBaseClasses/BaseTableViewController.h>
-#import <BetterBaseClasses/DynamicFontTableViewController.h>
+#import "BaseTableViewController.h"
+#import "DynamicFontTableViewController.h"
 
 // View Controller
-#import <BetterBaseClasses/BaseViewController.h>
-#import <BetterBaseClasses/DynamicFontTableContainerViewController.h>
-#import <BetterBaseClasses/DynamicFontViewController.h>
+#import "BaseViewController.h"
+#import "DynamicFontTableContainerViewController.h"
+#import "DynamicFontViewController.h"

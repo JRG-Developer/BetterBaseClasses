@@ -72,6 +72,7 @@
 - (void)test___application_didRegisterUserNotificationSettings___postsNotification {
   
   // given
+  UIApplication *application = nil;
   UIUserNotificationSettings *notificationSetting = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert
                                                                                       categories:nil];
 
@@ -79,7 +80,7 @@
   OCMExpect([notificationCenter postNotificationName:ApplicationDidRegisterUserNotificationSettings object:notificationSetting]);
   
   // when
-  [sut application:nil didRegisterUserNotificationSettings:notificationSetting];
+  [sut application:application didRegisterUserNotificationSettings:notificationSetting];
   
   // then
   OCMVerifyAll(notificationCenter);

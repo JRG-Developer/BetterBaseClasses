@@ -24,9 +24,9 @@
 //  THE SOFTWARE.
 
 // Table View Cell
-#import <BetterBaseClasses/BaseTableViewCell.h>
-#import <BetterBaseClasses/DynamicFontTableViewCell.h>
+#import "BaseTableViewCell.h"
+#import "DynamicFontTableViewCell.h"
 
 // UIView
-#import <BetterBaseClasses/BaseView.h>
-#import <BetterBaseClasses/DynamicFontView.h>
+#import "BaseView.h"
+#import "DynamicFontView.h"

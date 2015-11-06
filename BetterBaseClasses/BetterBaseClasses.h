@@ -24,10 +24,10 @@
 //  THE SOFTWARE.
 
 // Constants
-#import <BetterBaseClasses/BetterBaseConstants.h>
+#import "BetterBaseConstants.h"
 
 // Controllers
-#import <BetterBaseClasses/BetterBaseControllers.h>
+#import "BetterBaseControllers.h"
 
 // Views
-#import <BetterBaseClasses/BetterBaseViews.h>
+#import "BetterBaseViews.h"

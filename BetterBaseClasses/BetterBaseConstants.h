@@ -24,4 +24,4 @@
 //  THE SOFTWARE.
 
 // Notifications
-#import <BetterBaseClasses/AppDelegateNotificationKeys.h>
+#import "AppDelegateNotificationKeys.h"

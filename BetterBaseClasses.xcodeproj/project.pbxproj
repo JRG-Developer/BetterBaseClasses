@@ -406,6 +406,7 @@
 				424F601F1A9ACAB30041DC64 /* Frameworks */,
 				424F60201A9ACAB30041DC64 /* Resources */,
 				8B72D99B9A8E1787413316A6 /* Copy Pods Resources */,
+				BED9F0805E446BDD42916508 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -423,7 +424,7 @@
 		424F600F1A9ACAB30041DC64 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Joshua Greene";
 				TargetAttributes = {
 					424F60161A9ACAB30041DC64 = {
@@ -491,6 +492,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BetterBaseClassesTests/Pods-BetterBaseClassesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BED9F0805E446BDD42916508 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BetterBaseClassesTests/Pods-BetterBaseClassesTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -565,6 +581,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -625,7 +642,6 @@
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = BetterBaseClasses;
-				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -634,7 +650,6 @@
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = BetterBaseClasses;
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -642,16 +657,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C7FDF59C4F3025AE2350B870 /* Pods-BetterBaseClassesTests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = BetterBaseClassesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jrgdeveloper.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BetterBaseClassesTests;
 			};
 			name = Debug;
@@ -660,12 +671,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 595A0ADEDEFFC489FC15B193 /* Pods-BetterBaseClassesTests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = BetterBaseClassesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jrgdeveloper.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BetterBaseClassesTests;
 			};
 			name = Release;

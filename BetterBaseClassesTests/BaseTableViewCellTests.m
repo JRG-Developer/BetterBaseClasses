@@ -84,8 +84,11 @@
 
 - (void)test___initWithCoder___calls_commonInit {
   
+  // given
+  NSCoder *coder = nil;
+  
   // when
-  sut = [sut initWithCoder:nil];
+  sut = [sut initWithCoder:coder];
   
   // then
   OCMVerifyAll(partialMock);
