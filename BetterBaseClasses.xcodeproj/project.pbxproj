@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FE35FB689106B3088075D05 /* libPods-BetterBaseClassesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A87FA9875A11EAD70EED439 /* libPods-BetterBaseClassesTests.a */; };
+		0006C72113B5CDC9E892C241 /* libPods-BetterBaseClasses.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26068A27374B284FACA95FD3 /* libPods-BetterBaseClasses.a */; };
+		3C45EEBF192C128192DEA5FF /* libPods-BetterBaseClassesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B010B876E9891039A6E4BB /* libPods-BetterBaseClassesTests.a */; };
 		420A6E8F1AE0640D00068428 /* BaseAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A6E8E1AE0640D00068428 /* BaseAppDelegate.m */; };
 		420A6E981AE06EB900068428 /* BaseAppDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A6E971AE06EB900068428 /* BaseAppDelegateTests.m */; };
 		4225106F1AA52EC10078C6BF /* DynamicFontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225106E1AA52EC10078C6BF /* DynamicFontView.m */; };
@@ -61,6 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		26068A27374B284FACA95FD3 /* libPods-BetterBaseClasses.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BetterBaseClasses.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		420A6E8D1AE0640D00068428 /* BaseAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAppDelegate.h; sourceTree = "<group>"; };
 		420A6E8E1AE0640D00068428 /* BaseAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAppDelegate.m; sourceTree = "<group>"; };
 		420A6E971AE06EB900068428 /* BaseAppDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAppDelegateTests.m; sourceTree = "<group>"; };
@@ -74,8 +76,8 @@
 		424F601A1A9ACAB30041DC64 /* BetterBaseClasses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BetterBaseClasses.h; sourceTree = "<group>"; };
 		424F60221A9ACAB30041DC64 /* BetterBaseClassesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterBaseClassesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		424F60281A9ACAB30041DC64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		424F60311A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BetterBaseClasses.h"; sourceTree = "<group>"; };
-		424F60321A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BetterBaseClasses.m"; sourceTree = "<group>"; };
+		424F60311A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+BetterBaseClasses.h"; path = "Controllers/UIViewController+BetterBaseClasses.h"; sourceTree = "<group>"; };
+		424F60321A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+BetterBaseClasses.m"; path = "Controllers/UIViewController+BetterBaseClasses.m"; sourceTree = "<group>"; };
 		424F60341A9ACF860041DC64 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		424F60351A9ACF860041DC64 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		424F60371A9ACF930041DC64 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -103,12 +105,14 @@
 		42CD36A01AA7C40E007CEAA7 /* DynamicFontTableContainerViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicFontTableContainerViewControllerTests.m; sourceTree = "<group>"; };
 		42D35B161A9EE20F0092B4C1 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
 		42D35B171A9EE20F0092B4C1 /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
-		42D35B191A9EE3D70092B4C1 /* UIView+BetterBaseClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BetterBaseClasses.h"; sourceTree = "<group>"; };
-		42D35B1A1A9EE3D70092B4C1 /* UIView+BetterBaseClasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BetterBaseClasses.m"; sourceTree = "<group>"; };
+		42D35B191A9EE3D70092B4C1 /* UIView+BetterBaseClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BetterBaseClasses.h"; path = "Views/UIView+BetterBaseClasses.h"; sourceTree = "<group>"; };
+		42D35B1A1A9EE3D70092B4C1 /* UIView+BetterBaseClasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BetterBaseClasses.m"; path = "Views/UIView+BetterBaseClasses.m"; sourceTree = "<group>"; };
 		42D35B1C1A9EF3230092B4C1 /* UIView+BetterBaseClassesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BetterBaseClassesTests.m"; sourceTree = "<group>"; };
-		595A0ADEDEFFC489FC15B193 /* Pods-BetterBaseClassesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBaseClassesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterBaseClassesTests/Pods-BetterBaseClassesTests.release.xcconfig"; sourceTree = "<group>"; };
-		6A87FA9875A11EAD70EED439 /* libPods-BetterBaseClassesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BetterBaseClassesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7FDF59C4F3025AE2350B870 /* Pods-BetterBaseClassesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBaseClassesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterBaseClassesTests/Pods-BetterBaseClassesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		70B010B876E9891039A6E4BB /* libPods-BetterBaseClassesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BetterBaseClassesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		897DEAFE9E48222E8ABC010C /* Pods-BetterBaseClasses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBaseClasses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterBaseClasses/Pods-BetterBaseClasses.debug.xcconfig"; sourceTree = "<group>"; };
+		99B7FC16BB5466273E60BCA0 /* Pods-BetterBaseClasses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBaseClasses.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterBaseClasses/Pods-BetterBaseClasses.release.xcconfig"; sourceTree = "<group>"; };
+		BCBD6A0786EFAD1D9FCBF9C1 /* Pods-BetterBaseClassesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBaseClassesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterBaseClassesTests/Pods-BetterBaseClassesTests.release.xcconfig"; sourceTree = "<group>"; };
+		C195749A399CC9C1FFF64A5D /* Pods-BetterBaseClassesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBaseClassesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterBaseClassesTests/Pods-BetterBaseClassesTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0006C72113B5CDC9E892C241 /* libPods-BetterBaseClasses.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,13 +129,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				424F60231A9ACAB30041DC64 /* libBetterBaseClasses.a in Frameworks */,
-				3FE35FB689106B3088075D05 /* libPods-BetterBaseClassesTests.a in Frameworks */,
+				3C45EEBF192C128192DEA5FF /* libPods-BetterBaseClassesTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40931B49B9AEB1CC92A8032D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26068A27374B284FACA95FD3 /* libPods-BetterBaseClasses.a */,
+				70B010B876E9891039A6E4BB /* libPods-BetterBaseClassesTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		420A6E8C1AE063D500068428 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,8 +208,8 @@
 				424F60191A9ACAB30041DC64 /* BetterBaseClasses */,
 				424F60261A9ACAB30041DC64 /* BetterBaseClassesTests */,
 				424F60181A9ACAB30041DC64 /* Products */,
-				A4E1010673780393B6324E19 /* Pods */,
-				EF322946A27878CAFD51391F /* Frameworks */,
+				F59820B7D8E4F47F57B0B6A9 /* Pods */,
+				40931B49B9AEB1CC92A8032D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				424F603C1A9ACFA00041DC64 /* ~Public Headers */,
+				42B354CA1CC8401B009F623E /* Categories */,
 				428460071AE07CFF0065B813 /* Constants */,
 				424F603A1A9ACF990041DC64 /* Controllers */,
 				42D35B151A9EE1E00092B4C1 /* Views */,
@@ -239,8 +254,6 @@
 		424F603A1A9ACF990041DC64 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				424F60311A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.h */,
-				424F60321A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m */,
 				420A6E8C1AE063D500068428 /* AppDelegate */,
 				4280FAD01AA51672009F2FE6 /* UITableViewController */,
 				4280FACF1AA51667009F2FE6 /* UIViewController */,
@@ -349,32 +362,35 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		42D35B151A9EE1E00092B4C1 /* Views */ = {
+		42B354CA1CC8401B009F623E /* Categories */ = {
 			isa = PBXGroup;
 			children = (
 				42D35B191A9EE3D70092B4C1 /* UIView+BetterBaseClasses.h */,
 				42D35B1A1A9EE3D70092B4C1 /* UIView+BetterBaseClasses.m */,
+				424F60311A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.h */,
+				424F60321A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		42D35B151A9EE1E00092B4C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				422510721AA52EF10078C6BF /* UITableViewCell */,
 				422510711AA52EEF0078C6BF /* UIView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A4E1010673780393B6324E19 /* Pods */ = {
+		F59820B7D8E4F47F57B0B6A9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C7FDF59C4F3025AE2350B870 /* Pods-BetterBaseClassesTests.debug.xcconfig */,
-				595A0ADEDEFFC489FC15B193 /* Pods-BetterBaseClassesTests.release.xcconfig */,
+				897DEAFE9E48222E8ABC010C /* Pods-BetterBaseClasses.debug.xcconfig */,
+				99B7FC16BB5466273E60BCA0 /* Pods-BetterBaseClasses.release.xcconfig */,
+				C195749A399CC9C1FFF64A5D /* Pods-BetterBaseClassesTests.debug.xcconfig */,
+				BCBD6A0786EFAD1D9FCBF9C1 /* Pods-BetterBaseClassesTests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		EF322946A27878CAFD51391F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6A87FA9875A11EAD70EED439 /* libPods-BetterBaseClassesTests.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,9 +400,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 424F602B1A9ACAB30041DC64 /* Build configuration list for PBXNativeTarget "BetterBaseClasses" */;
 			buildPhases = (
+				0D30571620F800AC6D067B92 /* 📦 Check Pods Manifest.lock */,
 				424F60131A9ACAB30041DC64 /* Sources */,
 				424F60141A9ACAB30041DC64 /* Frameworks */,
 				424F60151A9ACAB30041DC64 /* CopyFiles */,
+				EACB0BE7212FD5B7DB0F4208 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -401,12 +419,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 424F602E1A9ACAB30041DC64 /* Build configuration list for PBXNativeTarget "BetterBaseClassesTests" */;
 			buildPhases = (
-				22BC39AAFE208B808F644071 /* Check Pods Manifest.lock */,
+				9D3F7D113B31D3CC861853B1 /* 📦 Check Pods Manifest.lock */,
 				424F601E1A9ACAB30041DC64 /* Sources */,
 				424F601F1A9ACAB30041DC64 /* Frameworks */,
 				424F60201A9ACAB30041DC64 /* Resources */,
-				8B72D99B9A8E1787413316A6 /* Copy Pods Resources */,
-				BED9F0805E446BDD42916508 /* Embed Pods Frameworks */,
+				6015E4967298FB9704FCB7DC /* 📦 Embed Pods Frameworks */,
+				34ED8C3E16F8E6430F6FD8A0 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -464,14 +482,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		22BC39AAFE208B808F644071 /* Check Pods Manifest.lock */ = {
+		0D30571620F800AC6D067B92 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,14 +497,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		8B72D99B9A8E1787413316A6 /* Copy Pods Resources */ = {
+		34ED8C3E16F8E6430F6FD8A0 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,19 +512,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BetterBaseClassesTests/Pods-BetterBaseClassesTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BED9F0805E446BDD42916508 /* Embed Pods Frameworks */ = {
+		6015E4967298FB9704FCB7DC /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BetterBaseClassesTests/Pods-BetterBaseClassesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D3F7D113B31D3CC861853B1 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EACB0BE7212FD5B7DB0F4208 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BetterBaseClasses/Pods-BetterBaseClasses-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -639,6 +687,7 @@
 		};
 		424F602C1A9ACAB30041DC64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 897DEAFE9E48222E8ABC010C /* Pods-BetterBaseClasses.debug.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = BetterBaseClasses;
@@ -647,6 +696,7 @@
 		};
 		424F602D1A9ACAB30041DC64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99B7FC16BB5466273E60BCA0 /* Pods-BetterBaseClasses.release.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = BetterBaseClasses;
@@ -655,7 +705,7 @@
 		};
 		424F602F1A9ACAB30041DC64 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7FDF59C4F3025AE2350B870 /* Pods-BetterBaseClassesTests.debug.xcconfig */;
+			baseConfigurationReference = C195749A399CC9C1FFF64A5D /* Pods-BetterBaseClassesTests.debug.xcconfig */;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -669,7 +719,7 @@
 		};
 		424F60301A9ACAB30041DC64 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 595A0ADEDEFFC489FC15B193 /* Pods-BetterBaseClassesTests.release.xcconfig */;
+			baseConfigurationReference = BCBD6A0786EFAD1D9FCBF9C1 /* Pods-BetterBaseClassesTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = BetterBaseClassesTests/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jrgdeveloper.$(PRODUCT_NAME:rfc1034identifier)";

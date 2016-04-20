@@ -35,13 +35,24 @@
 #pragma mark - Identifiers
 
 /**
- *  @brief  This method returns the bundle associated with the view.
+ *  @brief  Use this method to get the bundle for the view.
  *
- *  @discussion  This method returns the bundle for the class by default.
+ *  @discussion  If you don't set the bundle via `setBundle:`, or override this method in a subclass, the bundle
+ *               defaults to the bundle for the view's class.
  *
  *  @return The share conference info bundle
  */
 + (NSBundle *)bundle;
+
+/**
+ *  @brief  Use this method to set the bundle for the view.
+ *
+ *  @discussion  In general, you should prefer to override the `bundle` method on your subclass. This
+ *               method is useful, for example, in unit testing.
+ *
+ *  @param bundle The bundle to set for the view
+ */
++ (void)setBundle:(NSBundle *)bundle;
 
 /**
  *  @brief  This method returns the nib name associated with the view.

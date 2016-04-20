@@ -35,13 +35,24 @@
 #pragma mark - Identifiers
 
 /**
- *  @brief  Override this method to specify the bundle that `instanceFromNib` and `instanceFromStoryboard` should load from.
+ *  @brief  This method returns the bundle for the view controller.
  *
- *  @discussion This method returns the bundle containing the class by default.
+ *  @discussion  If you don't set the bundle via `setBundle:`, or override this method in a subclass, the bundle
+ *               defaults to the bundle for the view controller's class.
  *
  *  @return The nib bundle to load from
  */
 + (NSBundle *)bundle;
+
+/**
+ *  @brief  Use this method to set the bundle for the view controller.
+ *
+ *  @discussion  In general, you should prefer to override the `bundle` method on your subclass. This
+ *               method is useful, for example, in unit testing.
+ *
+ *  @param bundle The bundle to set for the view
+ */
++ (void)setBundle:(NSBundle *)bundle;
 
 /**
  *  @brief  Override this method to specify the nib name that `instanceFromNib`, or the storyboard identifier that `instanceFromStoryboard`, should load.

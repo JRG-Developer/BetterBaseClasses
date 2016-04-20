@@ -25,18 +25,29 @@
 
 #import "UIView+BetterBaseClasses.h"
 
+static NSBundle *BBC_bundle = nil;
+
 @implementation UIView (BetterBaseClasses)
 
 #pragma mark - Identifiers
+
++ (NSBundle *)bundle {
+    
+    if (!BBC_bundle) {
+        return [NSBundle bundleForClass:[self class]];
+    }
+    
+    return BBC_bundle;
+}
+
++ (void)setBundle:(NSBundle *)bundle {
+    BBC_bundle = bundle;
+}
 
 + (NSString *)nibName {
   
   NSString *identifier = NSStringFromClass([self class]);
   return identifier.pathExtension.length > 0 ? identifier.pathExtension : identifier;
-}
-
-+ (NSBundle *)bundle {
-  return [NSBundle bundleForClass:[self class]];
 }
 
 #pragma mark - Instantiation

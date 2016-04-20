@@ -25,6 +25,7 @@
 
 #import "UIViewController+BetterBaseClasses.h"
 
+static NSBundle *BBC_bundle = nil;
 static BOOL BBC_preferStoryboards = NO;
 
 @implementation UIViewController (BetterBaseClasses)
@@ -32,7 +33,16 @@ static BOOL BBC_preferStoryboards = NO;
 #pragma mark - Identifiers
 
 + (NSBundle *)bundle {
-  return [NSBundle bundleForClass:[self class]];
+    
+    if (!BBC_bundle) {
+        return [NSBundle bundleForClass:[self class]];
+    }
+    
+    return BBC_bundle;
+}
+
++ (void)setBundle:(NSBundle *)bundle {
+    BBC_bundle = bundle;
 }
 
 + (NSString *)identifier {

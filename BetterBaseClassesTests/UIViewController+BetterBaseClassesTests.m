@@ -102,6 +102,23 @@
   expect(actual).to.equal(expected);
 }
 
+- (void)test___setBundle___afterSettingBundle_bundle_returnsSetBundle {
+    
+    // given
+    [self givenMockBundle];
+    NSBundle *expected = mockBundle;
+    
+    // when
+    [UIViewController setBundle:mockBundle];
+    NSBundle *actual = [UIViewController bundle];
+    
+    // then
+    XCTAssertEqual(actual, expected);
+    
+    // clean up
+    [UIViewController setBundle:nil];
+}
+
 - (void)test___identifier___ifClassNameDoesntHavePathExtension_returnsClassName {
   
   // given

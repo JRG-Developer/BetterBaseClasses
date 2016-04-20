@@ -42,29 +42,29 @@
 
 @implementation UIView_BetterBaseClassesTests {
 
-  id bundleClass;
+  id mockBundle;
   id mockSutClass;
-  id nibClass;
+  id mockNibClass;
 }
 
 #pragma mark - Test Lifecycle
 
 - (void)tearDown {
   
-  [bundleClass stopMocking];
+  [mockBundle stopMocking];
   [mockSutClass stopMocking];
-  [nibClass stopMocking];
+  [mockNibClass stopMocking];
   [super tearDown];
 }
 
 #pragma mark - Given
 
 - (void)givenMockBundle {
-  bundleClass = OCMClassMock([NSBundle class]);
+  mockBundle = OCMClassMock([NSBundle class]);
 }
 
 - (void)givenMockNibClass {
-  nibClass = OCMClassMock([UINib class]);
+  mockNibClass = OCMClassMock([UINib class]);
 }
 
 - (void)givenMockSutClass {
@@ -78,13 +78,30 @@
   // given
   NSBundle *expected = [NSBundle bundleForClass:[self class]];
   [self givenMockBundle];
-  OCMExpect([bundleClass bundleForClass:OCMOCK_ANY]).andReturn(expected);
+  OCMExpect([mockBundle bundleForClass:OCMOCK_ANY]).andReturn(expected);
   
   // when
   NSBundle *actual = [UIView bundle];
   
   // then
   expect(actual).to.equal(expected);
+}
+
+- (void)test___setBundle___afterSettingBundle_bundle_returnsSetBundle {
+    
+    // given
+    [self givenMockBundle];
+    NSBundle *expected = mockBundle;
+    
+    // when
+    [UIView setBundle:mockBundle];
+    NSBundle *actual = [UIView bundle];
+    
+    // then
+    XCTAssertEqual(actual, expected);
+    
+    // clean up
+    [UIView setBundle:nil];
 }
 
 - (void)test___identifier___ifClassNameDoesntHavePathExtension_returnsClassName {
@@ -114,8 +131,8 @@
   
   [self givenMockSutClass];
   [self givenMockNibClass];
-  OCMStub([mockSutClass nib]).andReturn(nibClass);
-  OCMStub([nibClass instantiateWithOwner:nil options:nil]).andReturn(objects);
+  OCMStub([mockSutClass nib]).andReturn(mockNibClass);
+  OCMStub([mockNibClass instantiateWithOwner:nil options:nil]).andReturn(objects);
   
   // when
   UIView *actual = [UIView instanceFromNib];
@@ -133,7 +150,7 @@
   UINib *expected = [UINib new];
   
   [self givenMockNibClass];
-  OCMStub([nibClass nibWithNibName:nibName bundle:bundle]).andReturn(expected);
+  OCMStub([mockNibClass nibWithNibName:nibName bundle:bundle]).andReturn(expected);
   
   // when
   UINib *actual = [UIView nib];
