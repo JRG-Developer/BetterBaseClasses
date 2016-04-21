@@ -42,6 +42,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @discussion  If you don't set the bundle via `setBundle:`, or override this method in a subclass, the bundle
  *               defaults to the bundle for the view's class.
  *
+ *               If your view controller and its corresponding view are in the same bundle, this is 
+ *               likely the correct behavior. However, if needed, you can optionally override this
+ *               method in a subclass.
+ *
  *  @return The share conference info bundle
  */
 + (nullable NSBundle *)bundle;
@@ -49,8 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @brief  Use this method to set the bundle for the view.
  *
- *  @discussion  In general, you should prefer to override the `bundle` method on your subclass. This
- *               method is useful, for example, in unit testing.
+ *  @discussion  This method is useful, for example, in unit testing.
  *
  *  @param bundle The bundle to set for the view
  */

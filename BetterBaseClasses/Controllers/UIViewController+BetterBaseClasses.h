@@ -40,7 +40,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  @brief  This method returns the bundle for the view controller.
  *
  *  @discussion  If you don't set the bundle via `setBundle:`, or override this method in a subclass, the bundle
- *               defaults to the bundle for the view controller's class.
+ *               defaults to the bundle for the view's class.
+ *
+ *               If your view controller and its corresponding view are in the same bundle, this is
+ *               likely the correct behavior. However, if needed, you can optionally override this
+ *               method in a subclass.
  *
  *  @return The nib bundle to load from
  */
@@ -49,8 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @brief  Use this method to set the bundle for the view controller.
  *
- *  @discussion  In general, you should prefer to override the `bundle` method on your subclass. This
- *               method is useful, for example, in unit testing.
+ *  @discussion  This method is useful, for example, in unit testing.
  *
  *  @param bundle The bundle to set for the view
  */
