@@ -29,21 +29,20 @@
 // Collaborators
 
 // Test Support
-#import <XCTest/XCTest.h>
+#import "BaseTestCase.h"
 
 #define EXP_SHORTHAND YES
 #import <Expecta/Expecta.h>
 
 #import <OCMock/OCMock.h>
 
-@interface DynamicFontViewControllerTests : XCTestCase
+@interface DynamicFontViewControllerTests : BaseTestCase
 @end
 
 @implementation DynamicFontViewControllerTests {
   
   DynamicFontViewController *sut;
   
-  id notificationCenter;
   id partialMock;
 }
 
@@ -58,15 +57,11 @@
 
 - (void)tearDown {
   
-  [notificationCenter stopMocking];
+  [partialMock stopMocking];
   [super tearDown];
 }
 
 #pragma mark - Given
-
-- (void)givenMockNotificationCenter {
-  notificationCenter = OCMPartialMock([NSNotificationCenter defaultCenter]);
-}
 
 - (void)givenPartialMock {
   partialMock = OCMPartialMock(sut);
@@ -95,14 +90,34 @@
 - (void)test___contentSizeCategoryDidChange___calls_refreshViews {
 
   // given
+  NSNotification *notification = [NSNotification notificationWithName:@"" object:nil];
+  
   [self givenPartialMock];
   OCMExpect([partialMock refreshViews]);
   
   // when
-  [sut contentSizeCategoryDidChange:nil];
+  [sut contentSizeCategoryDidChange:notification];
   
   // then
   OCMVerifyAllWithDelay(partialMock, 0.01);
+}
+
+- (void)test___contentSizeCategoryDidChange___givenIsNotMainThread_calls_performSelectorOnMainThread {
+  
+  // given
+  NSNotification *notification = [NSNotification notificationWithName:@"" object:nil];
+  
+  [self givenMockThreadWillReturnIsMainThread:NO];
+  [self givenPartialMock];
+  OCMExpect([partialMock performSelectorOnMainThread:@selector(contentSizeCategoryDidChange:)
+                                          withObject:notification
+                                       waitUntilDone:NO]);
+  
+  // when
+  [sut contentSizeCategoryDidChange:notification];
+  
+  // then
+  OCMVerifyAll(partialMock);
 }
 
 @end

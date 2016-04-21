@@ -42,6 +42,7 @@
 @implementation BaseTableViewCellTests {
   
   BaseTableViewCell *sut;
+  
   id partialMock;
 }
 

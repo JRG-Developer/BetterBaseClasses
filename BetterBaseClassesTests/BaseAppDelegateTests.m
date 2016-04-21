@@ -30,20 +30,19 @@
 #import "AppDelegateNotificationKeys.h"
 
 // Test Support
-#import <XCTest/XCTest.h>
+#import "BaseTestCase.h"
 
 #define EXP_SHORTHAND YES
 #import <Expecta/Expecta.h>
 
 #import <OCMock/OCMock.h>
 
-@interface BaseAppDelegateTests : XCTestCase
+@interface BaseAppDelegateTests : BaseTestCase
 @end
 
 @implementation BaseAppDelegateTests {
 
   BaseAppDelegate *sut;
-  id notificationCenter;
 }
 
 #pragma mark - Test Lifecycle
@@ -58,13 +57,6 @@
 
   [notificationCenter stopMocking];
   [super tearDown];
-}
-
-#pragma mark - Given - Mocks
-
-- (void)givenMockNotificationCenter {
-  notificationCenter = OCMClassMock([NSNotificationCenter class]);
-  OCMStub(ClassMethod([notificationCenter defaultCenter])).andReturn(notificationCenter);
 }
 
 #pragma mark - Notifications - Tests

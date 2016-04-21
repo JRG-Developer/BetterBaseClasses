@@ -25,6 +25,8 @@
 
 #import "UIViewController+BetterBaseClasses.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  @brief  `BaseViewController` is an abstract, base class meant to be subclassed instead of `UIViewController`.
  *
@@ -37,3 +39,5 @@
 @interface BaseViewController : UIViewController
 
 @end
+
+NS_ASSUME_NONNULL_END

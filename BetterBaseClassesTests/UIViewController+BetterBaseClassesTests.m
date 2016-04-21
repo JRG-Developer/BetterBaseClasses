@@ -52,8 +52,8 @@
 
 #pragma mark - Test Lifecycle
 
-- (void)setUp
-{
+- (void)setUp {
+  
   [super setUp];
 
   bundle = [UIViewController bundle];

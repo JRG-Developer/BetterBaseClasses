@@ -45,12 +45,18 @@
                                              object:nil];
 }
 
-- (void)contentSizeCategoryDidChange:(NSNotificationCenter *)notification {
+- (void)contentSizeCategoryDidChange:(NSNotification *)notification {
   
-  dispatch_async(dispatch_get_main_queue(), ^{
-    [self.tableView reloadData];
-    [self refreshViews];
-  });
+  if (![NSThread isMainThread]) {
+    
+    [self performSelectorOnMainThread:@selector(contentSizeCategoryDidChange:)
+                           withObject:notification
+                        waitUntilDone:NO];
+    return;
+  }
+  
+  [self.tableView reloadData];
+  [self refreshViews];
 }
 
 #pragma mark - Dyanmic Font Type

@@ -29,23 +29,21 @@
 // Collaborators
 
 // Test Support
-#import <XCTest/XCTest.h>
+#import "BaseTestCase.h"
 
 #define EXP_SHORTHAND YES
 #import <Expecta/Expecta.h>
 
 #import <OCMock/OCMock.h>
 
-@interface DynamicFontTableViewCellTests : XCTestCase
+@interface DynamicFontTableViewCellTests : BaseTestCase
 @end
 
 @implementation DynamicFontTableViewCellTests {
   
   DynamicFontTableViewCell *sut;
   
-  id notificationCenter;
   id partialMock;
-  id thread;
 }
 
 #pragma mark - Test Lifecycle
@@ -58,23 +56,11 @@
 
 - (void)tearDown {
 
-  [notificationCenter stopMocking];
   [partialMock stopMocking];
-  [thread stopMocking];
   [super tearDown];
 }
 
 #pragma mark - Given
-
-- (void)givenMockNotificationCenter {
-  notificationCenter = OCMPartialMock([NSNotificationCenter defaultCenter]);
-}
-
-- (void)givenMockThreadWillReturnIsMainThread:(BOOL)isMainThread {
-  
-  thread = OCMClassMock([NSThread class]);
-  OCMStub(ClassMethod([thread isMainThread])).andReturn(isMainThread);
-}
 
 - (void)givenPartialMock {
   partialMock = OCMPartialMock(sut);
@@ -120,26 +106,32 @@
 - (void)test___contentSizeCategoryDidChange___ifIsMainThread_calls_refreshView {
   
   // given
+  NSNotification *notification = [NSNotification notificationWithName:@"" object:nil];
+  
   [self givenMockThreadWillReturnIsMainThread:YES];
   [self givenPartialMock];
   OCMExpect([partialMock refreshView]);
   
   // when
-  [sut contentSizeCategoryDidChange:nil];
+  [sut contentSizeCategoryDidChange:notification];
   
   // then
   OCMVerifyAll(partialMock);
 }
 
-- (void)test___contentSizeCategoryDidChange___ifIsNotMainThread_calls_performSelectorOnMainThread_whereSelectorIs_refreshView {
+- (void)test___contentSizeCategoryDidChange___ifIsNotMainThread_calls_performSelectorOnMainThread {
   
   // given
+  NSNotification *notification = [NSNotification notificationWithName:@"" object:nil];
+  
   [self givenMockThreadWillReturnIsMainThread:NO];
   [self givenPartialMock];
-  OCMExpect([partialMock performSelectorOnMainThread:@selector(refreshView) withObject:nil waitUntilDone:NO]);
+  OCMExpect([partialMock performSelectorOnMainThread:@selector(contentSizeCategoryDidChange:)
+                                          withObject:notification
+                                       waitUntilDone:NO]);
   
   // when
-  [sut contentSizeCategoryDidChange:nil];
+  [sut contentSizeCategoryDidChange:notification];
   
   // then
   OCMVerifyAll(partialMock);

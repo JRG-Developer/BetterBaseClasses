@@ -25,9 +25,13 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  @brief  This notification is sent when the app delegate is notified that the user has registered for notification settings.
  *
  *  @discusission  This notification is sent within `application: didRegisterUserNotificationSettings:`. The object is the `notificationSettings`.
  */
 UIKIT_EXTERN NSString * const ApplicationDidRegisterUserNotificationSettings;
+
+NS_ASSUME_NONNULL_END

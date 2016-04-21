@@ -29,14 +29,14 @@
 // Collaborators
 
 // Test Support
-#import <XCTest/XCTest.h>
+#import "BaseTestCase.h"
 
 #define EXP_SHORTHAND YES
 #import <Expecta/Expecta.h>
 
 #import <OCMock/OCMock.h>
 
-@interface DynamicFontTableViewControllerTests : XCTestCase
+@interface DynamicFontTableViewControllerTests : BaseTestCase
 @end
 
 @implementation DynamicFontTableViewControllerTests {
@@ -59,7 +59,6 @@
 
 - (void)tearDown {
   
-  [notificationCenter stopMocking];
   [partialMock stopMocking];
   [tableView stopMocking];
   
@@ -67,10 +66,6 @@
 }
 
 #pragma mark - Given
-
-- (void)givenMockNotificationCenter {
-  notificationCenter = OCMPartialMock([NSNotificationCenter defaultCenter]);
-}
 
 - (void)givenPartialMockWillReturnMockTableView {
   
@@ -107,23 +102,28 @@
 - (void)test___contentSizeCategoryDidChange___calls_tableView_reloadData {
   
   // given
+  NSNotification *notification = [NSNotification notificationWithName:@"" object:nil];
+  
   [self givenPartialMockWillReturnMockTableView];
   OCMExpect([tableView reloadData]);
   
   // when
-  [sut contentSizeCategoryDidChange:nil];
+  [sut contentSizeCategoryDidChange:notification];
   
   // then
   OCMVerifyAllWithDelay(tableView, 0.01);
 }
 
 - (void)test___contentSizeCategoryDidChange___calls_refreshViews {
+  
   // given
+  NSNotification *notification = [NSNotification notificationWithName:@"" object:nil];
+  
   [self givenPartialMock];
   OCMExpect([partialMock refreshViews]);
   
   // when
-  [sut contentSizeCategoryDidChange:nil];
+  [sut contentSizeCategoryDidChange:notification];
   
   // then
   OCMVerifyAllWithDelay(partialMock, 0.01);

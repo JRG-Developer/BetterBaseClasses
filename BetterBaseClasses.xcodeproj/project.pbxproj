@@ -20,6 +20,7 @@
 		424F60331A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 424F60321A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m */; };
 		424F60361A9ACF860041DC64 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 424F60351A9ACF860041DC64 /* BaseTableViewController.m */; };
 		424F60391A9ACF930041DC64 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 424F60381A9ACF930041DC64 /* BaseViewController.m */; };
+		427B60651CC8AB2B002895AA /* BaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 427B60641CC8AB2B002895AA /* BaseTestCase.m */; };
 		4280FACE1AA51242009F2FE6 /* DynamicFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4280FACD1AA51242009F2FE6 /* DynamicFontViewController.m */; };
 		4280FAD31AA516B4009F2FE6 /* DynamicFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4280FAD21AA516B4009F2FE6 /* DynamicFontTableViewController.m */; };
 		4280FAD71AA51851009F2FE6 /* DynamicFontTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4280FAD61AA51851009F2FE6 /* DynamicFontTableViewControllerTests.m */; };
@@ -76,12 +77,14 @@
 		424F601A1A9ACAB30041DC64 /* BetterBaseClasses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BetterBaseClasses.h; sourceTree = "<group>"; };
 		424F60221A9ACAB30041DC64 /* BetterBaseClassesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterBaseClassesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		424F60281A9ACAB30041DC64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		424F60311A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+BetterBaseClasses.h"; path = "Controllers/UIViewController+BetterBaseClasses.h"; sourceTree = "<group>"; };
-		424F60321A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+BetterBaseClasses.m"; path = "Controllers/UIViewController+BetterBaseClasses.m"; sourceTree = "<group>"; };
+		424F60311A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BetterBaseClasses.h"; sourceTree = "<group>"; };
+		424F60321A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BetterBaseClasses.m"; sourceTree = "<group>"; };
 		424F60341A9ACF860041DC64 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		424F60351A9ACF860041DC64 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		424F60371A9ACF930041DC64 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		424F60381A9ACF930041DC64 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		427B60631CC8AB2B002895AA /* BaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTestCase.h; sourceTree = "<group>"; };
+		427B60641CC8AB2B002895AA /* BaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTestCase.m; sourceTree = "<group>"; };
 		4280FACC1AA51242009F2FE6 /* DynamicFontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicFontViewController.h; sourceTree = "<group>"; };
 		4280FACD1AA51242009F2FE6 /* DynamicFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicFontViewController.m; sourceTree = "<group>"; };
 		4280FAD11AA516B4009F2FE6 /* DynamicFontTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicFontTableViewController.h; sourceTree = "<group>"; };
@@ -105,8 +108,8 @@
 		42CD36A01AA7C40E007CEAA7 /* DynamicFontTableContainerViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicFontTableContainerViewControllerTests.m; sourceTree = "<group>"; };
 		42D35B161A9EE20F0092B4C1 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
 		42D35B171A9EE20F0092B4C1 /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
-		42D35B191A9EE3D70092B4C1 /* UIView+BetterBaseClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BetterBaseClasses.h"; path = "Views/UIView+BetterBaseClasses.h"; sourceTree = "<group>"; };
-		42D35B1A1A9EE3D70092B4C1 /* UIView+BetterBaseClasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BetterBaseClasses.m"; path = "Views/UIView+BetterBaseClasses.m"; sourceTree = "<group>"; };
+		42D35B191A9EE3D70092B4C1 /* UIView+BetterBaseClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BetterBaseClasses.h"; sourceTree = "<group>"; };
+		42D35B1A1A9EE3D70092B4C1 /* UIView+BetterBaseClasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BetterBaseClasses.m"; sourceTree = "<group>"; };
 		42D35B1C1A9EF3230092B4C1 /* UIView+BetterBaseClassesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BetterBaseClassesTests.m"; sourceTree = "<group>"; };
 		70B010B876E9891039A6E4BB /* libPods-BetterBaseClassesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BetterBaseClassesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		897DEAFE9E48222E8ABC010C /* Pods-BetterBaseClasses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBaseClasses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterBaseClasses/Pods-BetterBaseClasses.debug.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +201,7 @@
 			children = (
 				428F4EB71A9F0F65000F4FD7 /* BaseViewTests.m */,
 				4225107A1AA534E80078C6BF /* DynamicFontViewTests.m */,
+				42D35B1C1A9EF3230092B4C1 /* UIView+BetterBaseClassesTests.m */,
 			);
 			name = UIView;
 			sourceTree = "<group>";
@@ -226,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				424F603C1A9ACFA00041DC64 /* ~Public Headers */,
-				42B354CA1CC8401B009F623E /* Categories */,
 				428460071AE07CFF0065B813 /* Constants */,
 				424F603A1A9ACF990041DC64 /* Controllers */,
 				42D35B151A9EE1E00092B4C1 /* Views */,
@@ -238,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				42A13CCF1A9AD74000D76B87 /* Cases */,
+				427B60621CC8AB0C002895AA /* Classes */,
 				424F60271A9ACAB30041DC64 /* Supporting Files */,
 			);
 			path = BetterBaseClassesTests;
@@ -254,6 +258,8 @@
 		424F603A1A9ACF990041DC64 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				424F60311A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.h */,
+				424F60321A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m */,
 				420A6E8C1AE063D500068428 /* AppDelegate */,
 				4280FAD01AA51672009F2FE6 /* UITableViewController */,
 				4280FACF1AA51667009F2FE6 /* UIViewController */,
@@ -270,6 +276,15 @@
 				428460101AE084960065B813 /* BetterBaseViews.h */,
 			);
 			name = "~Public Headers";
+			sourceTree = "<group>";
+		};
+		427B60621CC8AB0C002895AA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				427B60631CC8AB2B002895AA /* BaseTestCase.h */,
+				427B60641CC8AB2B002895AA /* BaseTestCase.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		4280FACF1AA51667009F2FE6 /* UIViewController */ = {
@@ -311,6 +326,7 @@
 				42A13CD61A9AD77400D76B87 /* BaseViewControllerTests.m */,
 				42CD36A01AA7C40E007CEAA7 /* DynamicFontTableContainerViewControllerTests.m */,
 				4280FAD81AA51A4A009F2FE6 /* DynamicFontViewControllerTests.m */,
+				42A13CD01A9AD75000D76B87 /* UIViewController+BetterBaseClassesTests.m */,
 			);
 			name = UIViewController;
 			sourceTree = "<group>";
@@ -336,20 +352,10 @@
 		42A13CCF1A9AD74000D76B87 /* Cases */ = {
 			isa = PBXGroup;
 			children = (
-				42A13CD21A9AD75800D76B87 /* Categories */,
 				42A13CD31A9AD76100D76B87 /* Controllers */,
 				428F4EB61A9F0F48000F4FD7 /* Views */,
 			);
 			name = Cases;
-			sourceTree = "<group>";
-		};
-		42A13CD21A9AD75800D76B87 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				42D35B1C1A9EF3230092B4C1 /* UIView+BetterBaseClassesTests.m */,
-				42A13CD01A9AD75000D76B87 /* UIViewController+BetterBaseClassesTests.m */,
-			);
-			name = Categories;
 			sourceTree = "<group>";
 		};
 		42A13CD31A9AD76100D76B87 /* Controllers */ = {
@@ -362,20 +368,11 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		42B354CA1CC8401B009F623E /* Categories */ = {
+		42D35B151A9EE1E00092B4C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				42D35B191A9EE3D70092B4C1 /* UIView+BetterBaseClasses.h */,
 				42D35B1A1A9EE3D70092B4C1 /* UIView+BetterBaseClasses.m */,
-				424F60311A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.h */,
-				424F60321A9ACAF70041DC64 /* UIViewController+BetterBaseClasses.m */,
-			);
-			name = Categories;
-			sourceTree = "<group>";
-		};
-		42D35B151A9EE1E00092B4C1 /* Views */ = {
-			isa = PBXGroup;
-			children = (
 				422510721AA52EF10078C6BF /* UITableViewCell */,
 				422510711AA52EEF0078C6BF /* UIView */,
 			);
@@ -596,6 +593,7 @@
 				42A13CD11A9AD75000D76B87 /* UIViewController+BetterBaseClassesTests.m in Sources */,
 				428F4EBB1A9F0F7D000F4FD7 /* BaseViewTests.m in Sources */,
 				420A6E981AE06EB900068428 /* BaseAppDelegateTests.m in Sources */,
+				427B60651CC8AB2B002895AA /* BaseTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,8 @@
 
 #import "BaseTableViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  @brief  `DynamicFontTableViewController` is a subclass of `BaseTableViewController` that provides support for dynamic font types.
  *
@@ -54,6 +56,8 @@
  *
  *  @param notification The `UIContentSizeCategoryDidChangeNotification` notification
  */
-- (void)contentSizeCategoryDidChange:(NSNotificationCenter *)notification;
+- (void)contentSizeCategoryDidChange:(NSNotification *)notification;
 
 @end
+
+NS_ASSUME_NONNULL_END

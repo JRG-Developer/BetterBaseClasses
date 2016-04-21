@@ -25,6 +25,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  @brief  `UIViewController+BetterBaseClasses` adds class convenience methods to instantiate a view controller defined by `bundle`, `identifier`, and `storyboardName` values.
  *
@@ -42,7 +44,7 @@
  *
  *  @return The nib bundle to load from
  */
-+ (NSBundle *)bundle;
++ (nullable NSBundle *)bundle;
 
 /**
  *  @brief  Use this method to set the bundle for the view controller.
@@ -52,7 +54,7 @@
  *
  *  @param bundle The bundle to set for the view
  */
-+ (void)setBundle:(NSBundle *)bundle;
++ (void)setBundle:(nullable NSBundle *)bundle;
 
 /**
  *  @brief  Override this method to specify the nib name that `instanceFromNib`, or the storyboard identifier that `instanceFromStoryboard`, should load.
@@ -80,7 +82,6 @@
  *  @return The storyboard name to use to load the view controller
  */
 + (NSString *)storyboardName;
-
 
 #pragma mark - Instantiation
 
@@ -149,3 +150,5 @@
 - (void)commonInit __attribute((objc_requires_super));
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -42,6 +42,7 @@
 @implementation BaseViewTests {
 
   BaseView *sut;
+  
   id partialMock;
 }
 

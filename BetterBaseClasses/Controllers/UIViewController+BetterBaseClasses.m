@@ -88,7 +88,6 @@ static BOOL BBC_preferStoryboards = NO;
   BBC_preferStoryboards = preferStoryboards;
 }
 
-
 + (BOOL)preferStoryboards {
   return BBC_preferStoryboards;
 }

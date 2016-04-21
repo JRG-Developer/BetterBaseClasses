@@ -47,12 +47,15 @@
 
 - (void)contentSizeCategoryDidChange:(NSNotification *)notification {
   
-  if ([NSThread isMainThread]) {
-    [self refreshView];
+  if (![NSThread isMainThread]) {
     
-  } else {
-    [self performSelectorOnMainThread:@selector(refreshView) withObject:nil waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(contentSizeCategoryDidChange:)
+                           withObject:notification
+                        waitUntilDone:NO];
+    return;
   }
+  
+  [self refreshView];
 }
 
 - (void)refreshView {

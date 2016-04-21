@@ -25,6 +25,8 @@
 
 #import "UIView+BetterBaseClasses.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  @brief  `BaseView` is an abstract, base class meant to be subclassed instead of `UIView`.
  *
@@ -33,3 +35,5 @@
 @interface BaseView : UIView
 
 @end
+
+NS_ASSUME_NONNULL_END

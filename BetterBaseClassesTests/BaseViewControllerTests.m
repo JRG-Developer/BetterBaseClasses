@@ -47,8 +47,8 @@
 
 #pragma mark - Test Lifecycle
 
-- (void)setUp
-{
+- (void)setUp {
+  
   [super setUp];
   
   sut = [BaseViewController alloc];

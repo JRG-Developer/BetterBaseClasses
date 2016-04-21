@@ -25,6 +25,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  @brief  `UIView+BetterBaseClasses` adds class convenience methods to instantiate a view defined by `bundle` and `nibName` values.
  *
@@ -42,7 +44,7 @@
  *
  *  @return The share conference info bundle
  */
-+ (NSBundle *)bundle;
++ (nullable NSBundle *)bundle;
 
 /**
  *  @brief  Use this method to set the bundle for the view.
@@ -52,7 +54,7 @@
  *
  *  @param bundle The bundle to set for the view
  */
-+ (void)setBundle:(NSBundle *)bundle;
++ (void)setBundle:(nullable NSBundle *)bundle;
 
 /**
  *  @brief  This method returns the nib name associated with the view.
@@ -93,3 +95,5 @@
 - (void)commonInit __attribute((objc_requires_super));
 
 @end
+
+NS_ASSUME_NONNULL_END

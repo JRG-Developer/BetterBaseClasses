@@ -25,6 +25,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  @brief  `BaseAppDelegate` is an abstract class meant to be subclassed by your app delegate, instead of `UIResponder` directly.
  *
@@ -40,3 +42,5 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @end
+
+NS_ASSUME_NONNULL_END
