@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @brief  This method returns the bundle for the view controller.
  *
  *  @discussion  If you don't set the bundle via `setBundle:`, or override this method in a subclass, the bundle
- *               defaults to the bundle for the view's class.
+ *               defaults to the bundle for the view controller's class.
  *
  *               If your view controller and its corresponding view are in the same bundle, this is
  *               likely the correct behavior. However, if needed, you can optionally override this
