@@ -34,4 +34,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 UIKIT_EXTERN NSString * const ApplicationDidRegisterUserNotificationSettings;
 
+/**
+ *  @brief  This notification is sent when the app delegate receives a call to `application: didReceiveLocalNotification:`.
+ *
+ *  @discussion  The object is the `UILocalNotification` object itself.
+ */
+UIKIT_EXTERN NSString * const ApplicationDidReceiveLocalNotification;
+
 NS_ASSUME_NONNULL_END

@@ -36,4 +36,10 @@
   [notificationCenter postNotificationName:ApplicationDidRegisterUserNotificationSettings object:notificationSettings];
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+  
+  NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+  [notificationCenter postNotificationName:ApplicationDidReceiveLocalNotification object:notification];  
+}
+
 @end

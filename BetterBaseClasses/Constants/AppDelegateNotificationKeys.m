@@ -26,3 +26,5 @@
 #import "AppDelegateNotificationKeys.h"
 
 NSString * const ApplicationDidRegisterUserNotificationSettings = @"ApplicationDidRegisterUserNotificationSettings";
+
+NSString * const ApplicationDidReceiveLocalNotification = @"ApplicationDidReceiveLocalNotification";

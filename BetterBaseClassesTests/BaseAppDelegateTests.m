@@ -78,4 +78,20 @@
   OCMVerifyAll(notificationCenter);
 }
 
+- (void)test___application_didReceiveLocalNotification___postsNotification {
+  
+  // given
+  UIApplication *application = nil;
+  UILocalNotification *notification = [[UILocalNotification alloc] init];
+  
+  [self givenMockNotificationCenter];
+  OCMExpect([notificationCenter postNotificationName:ApplicationDidReceiveLocalNotification object:notification]);
+  
+  // when
+  [sut application:application didReceiveLocalNotification:notification];
+  
+  // then
+  OCMVerifyAll(notificationCenter);
+}
+
 @end
