@@ -14,16 +14,16 @@ Pod::Spec.new do |s|
   s.source_files = "BetterBaseClasses/Library/BetterBaseClasses.h"
 
   s.subspec 'Constants' do |ss|
-    ss.source_files = "BetterBaseClasses/Library/BetterBaseConstants.h", "BetterBaseClasses/Constants/*.{h,m}"
+    ss.source_files = "BetterBaseClasses/Library/BetterBaseConstants.h", "BetterBaseClasses/Library/Constants/*.{h,m}"
   end
 
   s.subspec 'Controllers' do |ss|
-    ss.source_files = "BetterBaseClasses/Library/BetterBaseControllers.h", "BetterBaseClasses/Controllers/*.{h,m}"
+    ss.source_files = "BetterBaseClasses/Library/BetterBaseControllers.h", "BetterBaseClasses/Library/Controllers/*.{h,m}"
     ss.dependency 'BetterBaseClasses/Constants'
   end
 
   s.subspec 'Views' do |ss|
-    ss.source_files = "BetterBaseClasses/Library/BetterBaseViews.h", "BetterBaseClasses/Views/*.{h,m}"
+    ss.source_files = "BetterBaseClasses/Library/BetterBaseViews.h", "BetterBaseClasses/Library/Views/*.{h,m}"
   end
 
 end
