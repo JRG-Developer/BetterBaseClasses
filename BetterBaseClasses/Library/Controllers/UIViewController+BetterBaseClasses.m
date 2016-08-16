@@ -51,6 +51,10 @@ static BOOL BBC_preferStoryboards = NO;
   return identifier.pathExtension.length > 0 ? identifier.pathExtension : identifier;
 }
 
++ (NSString *)navigationControllerIdentifier {
+  return [[self identifier] stringByAppendingString:@"NavigationController"];
+}
+
 + (UIStoryboard *)storyboard {
   
   NSBundle *bundle = [self bundle];
@@ -74,6 +78,13 @@ static BOOL BBC_preferStoryboards = NO;
 + (instancetype)instanceFromStoryboard {
   
   NSString *identifier = [[self class] identifier];
+  UIStoryboard *storyboard = [[self class] storyboard];
+  return [storyboard instantiateViewControllerWithIdentifier:identifier];
+}
+
++ (UINavigationController *)navigationControllerInstanceFromStoryboard {
+  
+  NSString *identifier = [[self class] navigationControllerIdentifier];
   UIStoryboard *storyboard = [[self class] storyboard];
   return [storyboard instantiateViewControllerWithIdentifier:identifier];
 }

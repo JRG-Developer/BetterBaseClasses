@@ -43,7 +43,6 @@
   
   DynamicFontTableViewController *sut;
   
-  id notificationCenter;
   id partialMock;
   id tableView;
 }

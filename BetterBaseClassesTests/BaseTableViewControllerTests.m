@@ -42,6 +42,7 @@
 @implementation BaseTableViewControllerTests {
   
   BaseTableViewController *sut;
+  
   id partialMock;
 }
 

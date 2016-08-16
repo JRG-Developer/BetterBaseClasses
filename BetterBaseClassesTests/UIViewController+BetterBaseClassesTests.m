@@ -41,13 +41,19 @@
 
 @implementation UIViewController_BetterBaseClassesTests {
  
+  UIViewController *sut;
+  
   NSBundle *bundle;
   NSString *identifier;
+  NSString *navigationControllerIdentifier;
   NSString *storyboardName;
   
+  id mockApp;
   id mockBundle;
   id mockStoryboard;
   id mockSutClass;
+  
+  id partialMock;
 }
 
 #pragma mark - Test Lifecycle
@@ -56,13 +62,17 @@
   
   [super setUp];
 
+  sut = [[UIViewController alloc] init];
+  
   bundle = [UIViewController bundle];
   identifier = [UIViewController identifier];
+  navigationControllerIdentifier = [UIViewController navigationControllerIdentifier];
   storyboardName = [UIViewController storyboardName];
 }
 
 - (void)tearDown {
   
+  [mockApp stopMocking];
   [mockBundle stopMocking];
   [mockStoryboard stopMocking];
   [mockSutClass stopMocking];
@@ -136,6 +146,18 @@
   // TO-DO:  Figure out an easy way to test this...
 }
 
+- (void)test___navigationControllerIdentifier___returns_identifier_appendedBy_NavigationController {
+  
+  // given
+  NSString *expected = [[UIViewController identifier] stringByAppendingString:@"NavigationController"];
+  
+  // when
+  NSString *actual = [UIViewController navigationControllerIdentifier];
+  
+  // then
+  expect(actual).to.equal(expected);
+}
+
 - (void)test___storyboard___returnsStoryboardUsingStoryboardNameAndBundle {
   
   // given
@@ -191,6 +213,22 @@
   
   // when
   UIViewController *actual = [UIViewController instanceFromStoryboard];
+  
+  // then
+  expect(actual).to.equal(expected);
+}
+
+- (void)test___navigationControllerInstanceFromStoryboard___instantiatesNavigationControllerFromStoryboard {
+  
+  // given
+  UINavigationController *expected = [UINavigationController new];
+  
+  [self givenMockStoryboard];
+  OCMStub([mockStoryboard storyboardWithName:storyboardName bundle:bundle]).andReturn(mockStoryboard);
+  OCMStub([mockStoryboard instantiateViewControllerWithIdentifier:navigationControllerIdentifier]).andReturn(expected);
+  
+  // when
+  UINavigationController *actual = [UIViewController navigationControllerInstanceFromStoryboard];
   
   // then
   expect(actual).to.equal(expected);

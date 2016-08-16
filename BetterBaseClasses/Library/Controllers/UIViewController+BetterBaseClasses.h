@@ -69,6 +69,17 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)identifier;
 
 /**
+ *  @brief  Override this method to specify the navigation controller identifier that `navigationControllerInstanceFromStoryboard` should load.
+ *
+ *  @discussion  This method returns the `identifier` appended with "NavigationController" by default.
+ *
+ *  @warning  Its assumed this navigation controller will have this view controller set as its root view controller.
+ *
+ *  @return The navigation controller identifier to load from the storyboard
+ */
++ (NSString *)navigationControllerIdentifier;
+
+/**
  *  @brief  Use this method to get the storyboard that `instanceFromStoryboard` should use.
  *
  *  @discussion  This method uses `storyboardName` and `bundle` to create the storyboard.
@@ -108,6 +119,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)instanceFromStoryboard;
 
+/**
+ *  @brief  Use this method to instantiate this view controller inside a navigation controller from its storyboard.
+ *
+ *  @discussion  This is a convenience constructor that creates a new navigation controller using the `bundle`, `navigationControllerIdentifier`, and `storyboardName` return values.
+ *
+ *  @return A new navigation controller with this view controller set as the root view controller
+ */
++ (UINavigationController *)navigationControllerInstanceFromStoryboard;
+
 #pragma mark - Preferred Instance
 
 /**
@@ -146,7 +166,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @brief  Use this method to perform common initialization, regardless of the designiated initializer used to create the view controller.
  *
- *  @discussion  This class leaves it up to subclasses to actually call this method from all designated intializers. If you subclass `BaseViewController`, `BaseTableViewController`, or any subclasses thereof, this has alredy been done for you with the default initializers.
+ *  @discussion  Your custom view controllers that directly subclass `UIViewController` should call this method from all designated intializers.
+ *               
+ *                If you subclass `BaseViewController`, `BaseTableViewController`, or any subclasses thereof, this has already been done for you with the default initializers.
  *
  *  @note If you introduce a new designated initializer in your subclass of said classes, you should make sure to call `commonInit` with it.
  */

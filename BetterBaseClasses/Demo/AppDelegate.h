@@ -1,8 +1,8 @@
 //
-//  BaseViewControllerTests.m
+//  AppDelegate.h
 //  BetterBaseControllers
 //
-//  Created by Joshua Greene on 2/22/15.
+//  Created by Joshua Greene on 7/26/16.
 //  Copyright (c) 2015 Joshua Greene. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,68 +23,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-// Test Class
-#import "BaseViewController.h"
+#import <UIKit/UIKit.h>
 
-// Collaborators
-
-// Test Support
-#import <XCTest/XCTest.h>
-
-#define EXP_SHORTHAND YES
-#import <Expecta/Expecta.h>
-
-#import <OCMock/OCMock.h>
-
-@interface BaseViewControllerTests : XCTestCase
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@property (strong, nonatomic) UIWindow *window;
 @end
 
-@implementation BaseViewControllerTests {
-  
-  BaseViewController *sut;
-  
-  id partialMock;
-}
-
-#pragma mark - Test Lifecycle
-
-- (void)setUp {
-  
-  [super setUp];
-  
-  sut = [BaseViewController alloc];
-  
-  partialMock = OCMPartialMock(sut);
-  OCMExpect([partialMock commonInit]);
-}
-
-- (void)tearDown {
-  
-  [partialMock stopMocking];
-  [super tearDown];
-}
-
-#pragma mark - Object Lifecycle - Tests
-
-- (void)test___initWithCoder___calls_commonInit {
-  
-  // given
-  NSCoder *coder = nil;
-    
-  // when
-  sut = [sut initWithCoder:coder];
-  
-  // then
-  OCMVerifyAll(partialMock);
-}
-
-- (void)test___initWithNibName_bundle___calls_commonInit {
-  
-  // when
-  sut = [sut initWithNibName:nil bundle:nil];
-  
-  // then
-  OCMVerifyAll(partialMock);
-}
-
-@end

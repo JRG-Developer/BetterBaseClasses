@@ -86,19 +86,16 @@
 - (void)test___dealloc___removes_notificationCenterObserver {
   
   // given
-  [self givenMockNotificationCenter];
-  OCMExpect([notificationCenter removeObserver:sut]);
+  __weak DynamicFontView *object = nil;
   
-  // when
-  SEL selector = NSSelectorFromString(@"dealloc");
-  
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-  [sut performSelector:selector];
-#pragma clang diagnostic pop
+  // When
+  @autoreleasepool {
+    id silenceWarning = [[DynamicFontView alloc] init];
+    object = silenceWarning;
+  }
   
   // then
-  OCMVerifyAll(notificationCenter);
+  expect(object).to.beNil();  // doesn't crash, so must have removed observer ;)
 }
 
 #pragma mark - Dynamic Font Type - Tests
