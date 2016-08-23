@@ -26,9 +26,15 @@
 // App Delegate
 #import "BaseAppDelegate.h"
 
+// Navigation Controller
+#import "BaseNavigationController.h"
+
 // Table View Controller
 #import "BaseTableViewController.h"
 #import "DynamicFontTableViewController.h"
+
+// TabBarController
+#import "BaseTabBarController.h"
 
 // View Controller
 #import "BaseViewController.h"
