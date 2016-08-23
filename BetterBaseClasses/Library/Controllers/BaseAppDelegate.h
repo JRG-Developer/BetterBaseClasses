@@ -31,6 +31,8 @@
  *  @discussion  This class fixes inconsistencies in app notifications. 
  *
  *  For example, it sends out a notifications whenever it receives a call to `application: didRegisterUserNotificationSettings:`.
+ * 
+ *  @note  This class is intetionally NOT marked as an "audited region" (that is, `NS_ASSUME_NONNULL_BEGIN` / `NS_ASSUME_NONNULL_END`), so that `window` will be a forced unwrapped optional when automatically converted into Swift.
  */
 @interface BaseAppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -3,7 +3,7 @@
 //  BetterBaseClassesUITests
 //
 //  Created by Joshua Greene on 7/26/16.
-//  Copyright © 2016 JRG-Developer. All rights reserved.
+//  Copyright © 2016 Joshua Greene. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

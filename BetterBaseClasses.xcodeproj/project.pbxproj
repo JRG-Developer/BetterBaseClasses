@@ -40,6 +40,10 @@
 		42086DA81D47C9BC00C0E01F /* BaseTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42086DA61D47C9BC00C0E01F /* BaseTableViewCellTests.m */; };
 		42086DA91D47C9BC00C0E01F /* DynamicFontTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42086DA71D47C9BC00C0E01F /* DynamicFontTableViewCellTests.m */; };
 		42086DAD1D47C9D000C0E01F /* BaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 42086DAC1D47C9D000C0E01F /* BaseTestCase.m */; };
+		42996FE21D6CE4A200788736 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42996FE11D6CE4A200788736 /* BaseNavigationController.m */; };
+		42996FE81D6CE80C00788736 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42996FE71D6CE80C00788736 /* BaseTabBarController.m */; };
+		42996FEC1D6CEE8C00788736 /* BaseNavigationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42996FEB1D6CEE8C00788736 /* BaseNavigationControllerTests.m */; };
+		42996FEE1D6CEE9B00788736 /* BaseTabBarControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42996FED1D6CEE9B00788736 /* BaseTabBarControllerTests.m */; };
 		42AE11B71D63CB0D00AC18ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AE11B61D63CB0D00AC18ED /* main.m */; };
 		9C6A0C00DB3EA5B42F983AD5 /* libPods-BetterBaseClasses.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08330038461BB31AB888321A /* libPods-BetterBaseClasses.a */; };
 /* End PBXBuildFile section */
@@ -124,6 +128,12 @@
 		42086DA71D47C9BC00C0E01F /* DynamicFontTableViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicFontTableViewCellTests.m; sourceTree = "<group>"; };
 		42086DAB1D47C9D000C0E01F /* BaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTestCase.h; sourceTree = "<group>"; };
 		42086DAC1D47C9D000C0E01F /* BaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTestCase.m; sourceTree = "<group>"; };
+		42996FE01D6CE4A200788736 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseNavigationController.h; path = ../Views/BaseNavigationController.h; sourceTree = "<group>"; };
+		42996FE11D6CE4A200788736 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseNavigationController.m; path = ../Views/BaseNavigationController.m; sourceTree = "<group>"; };
+		42996FE61D6CE80C00788736 /* BaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
+		42996FE71D6CE80C00788736 /* BaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
+		42996FEB1D6CEE8C00788736 /* BaseNavigationControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationControllerTests.m; sourceTree = "<group>"; };
+		42996FED1D6CEE9B00788736 /* BaseTabBarControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarControllerTests.m; sourceTree = "<group>"; };
 		42AE11B61D63CB0D00AC18ED /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Demo/main.m; sourceTree = "<group>"; };
 		72C6F54042C574F356591495 /* Pods-BetterBaseClassesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBaseClassesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterBaseClassesTests/Pods-BetterBaseClassesTests.release.xcconfig"; sourceTree = "<group>"; };
 		75555012B9817BAC390CFCF0 /* Pods-BetterBaseClasses-BetterBaseClassesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBaseClasses-BetterBaseClassesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterBaseClasses-BetterBaseClassesTests/Pods-BetterBaseClasses-BetterBaseClassesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -270,6 +280,8 @@
 				42086D6C1D47C92400C0E01F /* UIViewController+BetterBaseClasses.h */,
 				42086D6D1D47C92400C0E01F /* UIViewController+BetterBaseClasses.m */,
 				42086DB01D47CB6D00C0E01F /* AppDelegate */,
+				42996FE41D6CE53600788736 /* UINavigationController */,
+				42996FE51D6CE54900788736 /* UITabBarController */,
 				42086DB11D47CB7100C0E01F /* UITableViewController */,
 				42086DB21D47CB7600C0E01F /* UIViewController */,
 			);
@@ -307,6 +319,8 @@
 			children = (
 				42086D8E1D47C97400C0E01F /* UIViewController+BetterBaseClassesTests.m */,
 				42086D8A1D47C95700C0E01F /* AppDelegate */,
+				42996FE91D6CEE3F00788736 /* UINavigationController */,
+				42996FEA1D6CEE4800788736 /* UITabBarController */,
 				42086D8B1D47C95D00C0E01F /* UITableViewController */,
 				42086D8C1D47C96300C0E01F /* UIViewController */,
 			);
@@ -429,6 +443,40 @@
 			name = UIViewController;
 			sourceTree = "<group>";
 		};
+		42996FE41D6CE53600788736 /* UINavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				42996FE01D6CE4A200788736 /* BaseNavigationController.h */,
+				42996FE11D6CE4A200788736 /* BaseNavigationController.m */,
+			);
+			name = UINavigationController;
+			sourceTree = "<group>";
+		};
+		42996FE51D6CE54900788736 /* UITabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				42996FE61D6CE80C00788736 /* BaseTabBarController.h */,
+				42996FE71D6CE80C00788736 /* BaseTabBarController.m */,
+			);
+			name = UITabBarController;
+			sourceTree = "<group>";
+		};
+		42996FE91D6CEE3F00788736 /* UINavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				42996FEB1D6CEE8C00788736 /* BaseNavigationControllerTests.m */,
+			);
+			name = UINavigationController;
+			sourceTree = "<group>";
+		};
+		42996FEA1D6CEE4800788736 /* UITabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				42996FED1D6CEE9B00788736 /* BaseTabBarControllerTests.m */,
+			);
+			name = UITabBarController;
+			sourceTree = "<group>";
+		};
 		42AE11B81D63CB1A00AC18ED /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,7 +591,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "JRG-Developer";
+				ORGANIZATIONNAME = "Joshua Greene";
 				TargetAttributes = {
 					42086D1D1D47C90800C0E01F = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -707,6 +755,7 @@
 				42086D261D47C90800C0E01F /* AppDelegate.m in Sources */,
 				42086D861D47C92400C0E01F /* UIView+BetterBaseClasses.m in Sources */,
 				42086D7E1D47C92400C0E01F /* DynamicFontTableViewController.m in Sources */,
+				42996FE81D6CE80C00788736 /* BaseTabBarController.m in Sources */,
 				42086D851D47C92400C0E01F /* DynamicFontView.m in Sources */,
 				42086D7D1D47C92400C0E01F /* DynamicFontTableContainerViewController.m in Sources */,
 				42086D841D47C92400C0E01F /* DynamicFontTableViewCell.m in Sources */,
@@ -714,6 +763,7 @@
 				42086D811D47C92400C0E01F /* UIViewController+BetterBaseClasses.m in Sources */,
 				42086D7B1D47C92400C0E01F /* BaseTableViewController.m in Sources */,
 				42086D821D47C92400C0E01F /* BaseTableViewCell.m in Sources */,
+				42996FE21D6CE4A200788736 /* BaseNavigationController.m in Sources */,
 				42086D831D47C92400C0E01F /* BaseView.m in Sources */,
 				42086D7F1D47C92400C0E01F /* DynamicFontViewController.m in Sources */,
 				42086D7C1D47C92400C0E01F /* BaseViewController.m in Sources */,
@@ -736,6 +786,8 @@
 				42086DAD1D47C9D000C0E01F /* BaseTestCase.m in Sources */,
 				42086D951D47C98100C0E01F /* BaseTableViewControllerTests.m in Sources */,
 				42086D9A1D47C98C00C0E01F /* BaseViewControllerTests.m in Sources */,
+				42996FEE1D6CEE9B00788736 /* BaseTabBarControllerTests.m in Sources */,
+				42996FEC1D6CEE8C00788736 /* BaseNavigationControllerTests.m in Sources */,
 				42086DA41D47C9B800C0E01F /* DynamicFontViewTests.m in Sources */,
 				42086D921D47C97A00C0E01F /* BaseAppDelegateTests.m in Sources */,
 				42086D961D47C98100C0E01F /* DynamicFontTableViewControllerTests.m in Sources */,
