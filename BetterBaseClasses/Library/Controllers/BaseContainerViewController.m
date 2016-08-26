@@ -249,7 +249,13 @@ static CGFloat _animationDuration = 0.25f;
     if (externalCompletion) { externalCompletion(); }
   };
   
-  [UIView animateWithDuration:animationDuration animations:animations completion:completion];
+  if (animationDuration > 0) {
+    [UIView animateWithDuration:animationDuration animations:animations completion:completion];
+    
+  } else {
+    animations();
+    completion(YES);
+  }
 }
 
 - (void)setNewContentView:(UIView *)contentView
@@ -280,7 +286,13 @@ static CGFloat _animationDuration = 0.25f;
     if (externalCompletion) { externalCompletion(); }
   };
 
-  [UIView animateWithDuration:animationDuration animations:animations completion:completion];
+  if (animationDuration > 0) {
+    [UIView animateWithDuration:animationDuration animations:animations completion:completion];
+    
+  } else {
+    animations();
+    completion(YES);
+  }
 }
 
 - (void)replaceWithNewContentView:(UIView *)contentView
@@ -312,7 +324,13 @@ static CGFloat _animationDuration = 0.25f;
     if (externalCompletion) { externalCompletion(); }
   };
   
-  [UIView animateWithDuration:animationDuration animations:animations completion:completion];
+  if (animationDuration > 0) {
+    [UIView animateWithDuration:animationDuration animations:animations completion:completion];
+    
+  } else {
+    animations();
+    completion(YES);
+  }
 }
 
 - (void)removeSubviewsFromParentView:(NSArray<UIView *> *)subviews {
