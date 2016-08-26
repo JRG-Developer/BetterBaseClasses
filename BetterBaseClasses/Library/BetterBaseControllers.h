@@ -26,6 +26,9 @@
 // App Delegate
 #import "BaseAppDelegate.h"
 
+// Container
+#import "BaseContainerViewController.h"
+
 // Navigation Controller
 #import "BaseNavigationController.h"
 
