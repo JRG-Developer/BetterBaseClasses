@@ -30,6 +30,13 @@
                 height:(CGFloat)maxHeight
               animated:(BOOL) animated
             completion:(void(^)())externalCompletion;
+
+- (void)updateContainerView:(UIView *)containerView
+                 constraint:(NSLayoutConstraint *)constraint
+                     height:(CGFloat)maxHeight
+                     hidden:(BOOL)hidden
+                   animated:(BOOL)animated
+                 completion:(void(^)())completion;
 @end
 
 @interface BaseContainerViewControllerTests : XCTestCase
@@ -69,7 +76,7 @@
   bottomContainerView = OCMClassMock([UIView class]);
   topContainerView = OCMClassMock([UIView class]);
   
-  sut = [[BaseContainerViewController alloc] init];
+  sut = [[BaseContainerViewController alloc] init];  
   sut.bottomContainerView = bottomContainerView;
   sut.topContainerView = topContainerView;
   
@@ -77,8 +84,6 @@
   [self givenMockConstraintWithConstant:constraintConstant];
   sut.topContainerViewHeightConstraint = constraint;
   sut.bottomContainerViewHeightConstraint = constraint;
-  
-  [sut view]; // force view to load
 }
 
 - (void)tearDown {
@@ -105,6 +110,7 @@
 
 - (void)givenMockConstraintWithConstant:(CGFloat)constant {
   
+  [constraint stopMocking];
   constraint = OCMClassMock([NSLayoutConstraint class]);
   OCMStub([constraint constant]).andReturn(constant);
 }
@@ -246,45 +252,45 @@
 
 // Sporadically crashes... OCMock bug?... :/
 
-//- (void)test___setBottomViewController_animated_completion___calls_existingBottomViewController_removeFromParentViewController {
-//  
-//  // given
-//  XCTestExpectation *expectation = [self expectationWithDescription:@"Wait for completion tp be called"];
-//  
-//  [self givenMockExistingViewController];
-//  sut.bottomViewController = existingViewController;
-//  OCMExpect([existingViewController removeFromParentViewController]);
-//  
-//  [self givenMockNewViewController];
-//  
-//  // when
-//  [sut setBottomViewController:newViewController animated:NO completion:^{
-//    [expectation fulfill];
-//  }];
-//  
-//  // then
-//  [self waitForExpectationsWithTimeout:0.1 handler:nil];
-//}
+- (void)test___setBottomViewController_animated_completion___calls_existingBottomViewController_removeFromParentViewController {
+  
+  // given
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Wait for completion tp be called"];
+  
+  [self givenMockExistingViewController];
+  sut.bottomViewController = existingViewController;
+  OCMExpect([existingViewController removeFromParentViewController]);
+  
+  [self givenMockNewViewController];
+  
+  // when
+  [sut setBottomViewController:newViewController animated:NO completion:^{
+    [expectation fulfill];
+  }];
+  
+  // then
+  [self waitForExpectationsWithTimeout:0.1 handler:nil];
+}
 
-//- (void)test___setBottomViewController_animated_completion___calls_newViewController_didMoveToParentViewController {
-//  
-//  // given
-//  XCTestExpectation *expectation = [self expectationWithDescription:@"Wait for completion tp be called"];
-//  
-//  [self givenMockExistingViewController];
-//  sut.bottomViewController = existingViewController;
-//  
-//  [self givenMockNewViewController];
-//  OCMExpect([newViewController didMoveToParentViewController:sut]);
-//  
-//  // when
-//  [sut setBottomViewController:newViewController animated:NO completion:^{
-//    [expectation fulfill];
-//  }];
-//  
-//  // then
-//  [self waitForExpectationsWithTimeout:0.1 handler:nil];
-//}
+- (void)test___setBottomViewController_animated_completion___calls_newViewController_didMoveToParentViewController {
+  
+  // given
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Wait for completion tp be called"];
+  
+  [self givenMockExistingViewController];
+  sut.bottomViewController = existingViewController;
+  
+  [self givenMockNewViewController];
+  OCMExpect([newViewController didMoveToParentViewController:sut]);
+  
+  // when
+  [sut setBottomViewController:newViewController animated:NO completion:^{
+    [expectation fulfill];
+  }];
+  
+  // then
+  [self waitForExpectationsWithTimeout:0.1 handler:nil];
+}
 
 #pragma mark -- Top View Controller
 
@@ -305,20 +311,20 @@
 
 // Sporadically crashes... OCMock bug?... :/
 
-//- (void)test___setTopViewController_animated_completion___calls_topViewController_willMoveToParentViewController_nil {
-//  
-//  // given
-//  [self givenMockExistingViewController];
-//  sut.topViewController = existingViewController;
-//  
-//  OCMExpect([existingViewController willMoveToParentViewController:nil]);
-//  
-//  // when
-//  [sut setTopViewController:nil animated:NO completion:nil];
-//  
-//  // then
-//  OCMVerifyAll(existingViewController);
-//}
+- (void)test___setTopViewController_animated_completion___calls_topViewController_willMoveToParentViewController_nil {
+  
+  // given
+  [self givenMockExistingViewController];
+  sut.topViewController = existingViewController;
+  
+  OCMExpect([existingViewController willMoveToParentViewController:nil]);
+  
+  // when
+  [sut setTopViewController:nil animated:NO completion:nil];
+  
+  // then
+  OCMVerifyAll(existingViewController);
+}
 
 - (void)test___setTopViewController_animated_completion___calls_sut_addChildViewController_newViewController {
   
@@ -337,20 +343,20 @@
 
 // Sporadically crashes... OCMock bug?... :/
 
-//- (void)test___setTopViewController_animated_completion___calls_sut_setTopContentView_animated_completion {
-//  
-//  // given
-//  [self givenMockNewViewController];
-//  [self givenPartialMock];
-//  
-//  OCMExpect([partialMock setTopContentView:newContentView animated:NO completion:OCMOCK_ANY]);
-//  
-//  // when
-//  [sut setTopViewController:newViewController animated:NO completion:nil];
-//  
-//  // then
-//  OCMVerifyAll(partialMock);
-//}
+- (void)test___setTopViewController_animated_completion___calls_sut_setTopContentView_animated_completion {
+  
+  // given
+  [self givenMockNewViewController];
+  [self givenPartialMock];
+  
+  OCMExpect([partialMock setTopContentView:newContentView animated:NO completion:OCMOCK_ANY]);
+  
+  // when
+  [sut setTopViewController:newViewController animated:NO completion:nil];
+  
+  // then
+  OCMVerifyAll(partialMock);
+}
 
 - (void)test___setTopViewController_animated_completion___sets_topViewController {
   
@@ -473,6 +479,37 @@
 
 #pragma mark - Container Methods - Tests
 
+- (void)test___setBottomContainerViewHidden___calls_setBottomContainerViewHidden_animated_completion {
+  
+  // given
+  [self givenPartialMock];
+  OCMExpect([partialMock setBottomContainerViewHidden:YES animated:YES completion:nil]);
+  
+  // when
+  [sut setBottomContainerViewHidden:YES];
+  
+  // then
+  OCMVerifyAll(partialMock);
+}
+
+- (void)test___setBottomContainerViewHidden_animated___calls_updateContainerView_constraint_etall {
+  
+  // given
+  [self givenPartialMock];
+  OCMExpect([partialMock updateContainerView:sut.bottomContainerView
+                                  constraint:constraint
+                                      height:constraintConstant
+                                      hidden:YES
+                                    animated:YES
+                                  completion:nil]);
+  
+  // when
+  [sut setBottomContainerViewHidden:YES animated:YES completion:nil];
+  
+  // then
+  OCMVerifyAll(partialMock);
+}
+
 - (void)test___setBottomContentView___calls_setBottomContentView_animated_completion {
   
   // given
@@ -506,6 +543,37 @@
   OCMVerifyAll(partialMock);
 }
 
+- (void)test___setTopContainerViewHidden___calls_setTopContainerViewHidden_animated_completion {
+  
+  // given
+  [self givenPartialMock];
+  OCMExpect([partialMock setTopContainerViewHidden:YES animated:YES completion:nil]);
+  
+  // when
+  [sut setTopContainerViewHidden:YES];
+  
+  // then
+  OCMVerifyAll(partialMock);
+}
+
+- (void)test___setTopContainerViewHidden_animated_calls_setContentView_container_etall {
+  
+  // given
+  [self givenPartialMock];
+  OCMExpect([partialMock updateContainerView:sut.topContainerView
+                                  constraint:constraint
+                                      height:constraintConstant
+                                      hidden:YES
+                                    animated:YES
+                                  completion:nil]);
+  
+  // when
+  [sut setTopContainerViewHidden:YES animated:YES completion:nil];
+  
+  // then
+  OCMVerifyAll(partialMock);
+}
+
 - (void)test___setTopContentView___calls_setTopContentView_animated_completion {
   
   // given
@@ -521,7 +589,7 @@
   OCMVerifyAll(partialMock);
 }
 
-- (void)test___setTopContentView_animated_completion_calls_setContentView_containerView_etall {
+- (void)test___setTopContentView_animated_completion___calls_setContentView_containerView_etall {
   
   // given
   [self givenMockNewContentView];
@@ -539,11 +607,132 @@
   OCMVerifyAll(partialMock);
 }
 
+#pragma mark -- Show/Hide Container View
+
+- (void)test___updateContainerView_constraint_etall___givenConstraintConstantZero_hiddenNO_setsConstraintConstantToZero {
+  
+  // given
+  [self givenMockConstraintWithConstant:0.0f];
+  
+  OCMExpect([constraint setConstant:constraintConstant]);
+  
+  // when
+  [sut updateContainerView:sut.topContainerView
+                constraint:constraint
+                    height:constraintConstant
+                    hidden:NO
+                  animated:NO
+                completion:nil];
+  
+  // then
+  OCMVerifyAll(constraint);
+}
+
+- (void)test___updateContainerView_constraint_etall___givenConstraintConstantNotZero_hiddenYES_setsConstraintConstant {
+  
+  // given
+  OCMExpect([constraint setConstant:0.0f]);
+  
+  // when
+  [sut updateContainerView:sut.topContainerView
+                constraint:constraint
+                    height:constraintConstant
+                    hidden:YES
+                  animated:NO
+                completion:nil];
+  
+  // then
+  OCMVerifyAll(constraint);
+}
+
+- (void)test___updateContainerView_constraint_etall___givenConstraintContantZero_hiddenYES_calls_completion {
+  
+  // given
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Wait for completion to be called"];
+  
+  [self givenMockConstraintWithConstant:0.0f];
+  
+  // when
+  [sut updateContainerView:sut.topContainerView
+                constraint:constraint
+                    height:constraintConstant
+                    hidden:YES
+                  animated:NO completion:^{
+                    [expectation fulfill];
+                  }];
+  
+  // then
+  [self waitForExpectationsWithTimeout:0.1 handler:nil];
+}
+
+- (void)test___updateContainerView_constraint_etall___givenConstraintConstantZero_hiddenYES_callsCompletion {
+  // given
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Wait for completion"];
+  
+  // when
+  [sut updateContainerView:sut.topContainerView
+                constraint:constraint
+                    height:constraintConstant
+                    hidden:YES
+                  animated:NO
+                completion: ^{
+                  [expectation fulfill];
+                  OCMVerifyAll(constraint);                  
+                }];
+  
+  // then
+  [self waitForExpectationsWithTimeout:0.1 handler:nil];
+}
+
+- (void)test___updateContainerView_constraint_etall___givenConstraintConstantZero_hiddenNO_callsCompletion {
+  
+  // given
+  [self givenMockConstraintWithConstant:0.0f];
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Wait for completion"];
+  
+  // when
+  [sut updateContainerView:sut.topContainerView
+                constraint:constraint
+                    height:constraintConstant
+                    hidden:NO
+                  animated:NO
+                completion: ^{
+                  [expectation fulfill];
+                  OCMVerifyAll(constraint);
+                }];
+  
+  // then
+  [self waitForExpectationsWithTimeout:0.1 handler:nil];
+}
+
+- (void)test___updateContainerView_constraint_etall___givenConstraintConstantNotZero_hiddenNO_callsCompletion {
+  
+  // given
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Wait for completion"];
+  
+  // when
+  [sut updateContainerView:sut.topContainerView
+                constraint:constraint
+                    height:constraintConstant
+                    hidden:NO
+                  animated:NO
+                completion: ^{
+                  [expectation fulfill];
+                  OCMVerifyAll(constraint);
+                }];
+  
+  // then
+  [self waitForExpectationsWithTimeout:0.1 handler:nil];
+}
+
+#pragma mark -- Set Content View
+#pragma mark --- nil content view
+
 - (void)test___setContentView_containerView_etall___givenContentViewNil_setsContraintConstantToZero {
   
   // given
   OCMExpect([constraint setConstant:0.0f]);
-            
+  
   // when
   [sut setContentView:nil
         containerView:topContainerView
@@ -554,8 +743,6 @@
   // then
   OCMVerifyAll(constraint);
 }
-
-#pragma mark -- nil content view
 
 - (void)test___setContentView_containerView_etall___givenContentViewNil_removesContentViewSubviews {
   
@@ -622,7 +809,7 @@
   OCMVerifyAll(newContentView);
 }
 
-#pragma mark -- new content view
+#pragma mark --- new content view
 
 - (void)test___setContentView_containerView_etall___addsNewContentViewToContainerView {
   
@@ -648,6 +835,7 @@
   // given
   [self givenMockNewContentView];
   
+  [self givenMockConstraintWithConstant:0.0f];
   OCMExpect([constraint setConstant:constraintConstant]);
   
   // when
@@ -681,7 +869,7 @@
   [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-#pragma mark -- replacement content view
+#pragma mark --- replacement content view
 
 - (void)test___setContentView_containerView_etall___givenReplacementContentView_setsNewContentViewAlphaInitiallyToZero {
   

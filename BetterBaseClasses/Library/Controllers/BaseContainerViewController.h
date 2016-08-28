@@ -102,7 +102,29 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic, nullable) UIViewController *topViewController;
 
 
-#pragma mark - Container Methods
+#pragma mark - Bottom Container View Methods
+
+/**
+ *  @brief  Use this method to hide/show the bottom container view.
+ *
+ *  @discussion  This is a convenience method that calls `setBottomContainerViewHidden: animated: completion:`, passing `YES` for `animated` and `nil` for `completion`.
+ *
+*  @param hidden   Whether or not the container view should be hidden
+ */
+- (void)setBottomContainerViewHidden:(BOOL)hidden;
+
+/**
+*  @brief  Use this method to hide/show the bottom container view.
+*
+*  @discussion  This method hides/shows the `bottomContainerView` by setting the `bottomContainerViewHeightConstraint`'s `constant` value. If this property is `nil`, this method doesn't do anything.
+*
+*  @param hidden   Whether or not the container view should be hidden
+*  @param animated Whether or not the change should be animated
+*  @param completion  The block to be called upon completion
+*/
+- (void)setBottomContainerViewHidden:(BOOL)hidden
+                            animated:(BOOL)animated
+                          completion:(nullable void(^)())completion;
 
 /**
  *  @brief  Use this method to set `bottomContainerView`'s "content" view.
@@ -142,6 +164,31 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param completion     The block to be called upon completion
  */
 - (void)setBottomViewController:(nullable UIViewController *)viewController animated:(BOOL) animated completion:(nullable void(^)())completion;
+
+
+#pragma mark - Top Container View Methods
+
+/**
+ *  @brief  Use this method to hide/show the top container view.
+ *
+ *  @discussion  This is a convenience method that calls `setTopContainerViewHidden: animated: completion:`, passing `YES` for `animated` and `nil` for `completion`.
+ *
+ *  @param hidden   Whether or not the container view should be hidden
+ */
+- (void)setTopContainerViewHidden:(BOOL)hidden;
+
+/**
+ *  @brief  Use this method to hide/show the top container view.
+ *
+ *  @discussion  This method hides/shows the `topContainerView` by setting the `topContainerViewHeightConstraint`'s `constant` value. If this property is `nil`, this method doesn't do anything.
+ *
+ *  @param hidden   Whether or not the container view should be hidden
+ *  @param animated Whether or not the change should be animated
+ *  @param completion     The block to be called upon completion
+ */
+- (void)setTopContainerViewHidden:(BOOL)hidden
+                         animated:(BOOL)animated
+                       completion:(nullable void(^)())completion;
 
 /**
  *  @brief  Use this method to set `topContainerView`'s "content" view.

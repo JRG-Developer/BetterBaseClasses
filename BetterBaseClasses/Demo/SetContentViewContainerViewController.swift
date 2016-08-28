@@ -12,6 +12,17 @@ class SetContentViewContainerViewController: BaseContainerViewController {
 
   // MARK: - Actions
   
+  @IBAction func hideShowBottomViewPressed(sender: AnyObject) {
+    
+    let hidden = bottomContainerViewHeightConstraint!.constant != 0
+    setBottomContainerViewHidden(hidden, animated: true, completion: nil)
+  }
+  
+  @IBAction func hideShowTopViewPressed(sender: AnyObject) {
+    let hidden = topContainerViewHeightConstraint!.constant != 0
+    setTopContainerViewHidden(hidden, animated: true, completion: nil)
+  }
+  
   @IBAction func replaceBottomViewPressed(sender: AnyObject) {
   
     let contentView = UIView()

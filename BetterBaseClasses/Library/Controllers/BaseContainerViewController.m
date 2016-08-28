@@ -33,8 +33,6 @@
 
 @implementation BaseContainerViewController
 
-static CGFloat _animationDuration = 0.25f;
-
 
 #pragma mark - Class Configuration
 
@@ -45,6 +43,8 @@ static CGFloat _animationDuration = 0.25f;
 + (void)setAnimationDuration:(CGFloat)animationDuration {
   _animationDuration = animationDuration;
 }
+
+static CGFloat _animationDuration = 0.20f;
 
 
 #pragma mark - Custom Accessors
@@ -158,6 +158,22 @@ static CGFloat _animationDuration = 0.25f;
 
 #pragma mark - Container Methods
 
+- (void)setBottomContainerViewHidden:(BOOL)hidden {
+  [self setBottomContainerViewHidden:hidden animated:YES completion:nil];
+}
+
+- (void)setBottomContainerViewHidden:(BOOL)hidden
+                            animated:(BOOL)animated
+                          completion:(void(^)())completion {
+
+  [self updateContainerView:self.bottomContainerView
+                 constraint:self.bottomContainerViewHeightConstraint
+                     height:self.bottomContainerViewHeightConstraintConstant
+                     hidden:hidden
+                   animated:animated
+                 completion:completion];
+}
+
 - (void)setBottomContentView:(UIView *)contentView {
   [self setBottomContentView:contentView animated:YES completion:nil];
 }
@@ -172,6 +188,22 @@ static CGFloat _animationDuration = 0.25f;
                 height:self.bottomContainerViewHeightConstraintConstant
               animated:animated
             completion:completion];
+}
+
+- (void)setTopContainerViewHidden:(BOOL)hidden {
+  [self setTopContainerViewHidden:hidden animated:YES completion:nil];
+}
+
+- (void)setTopContainerViewHidden:(BOOL)hidden
+                         animated:(BOOL)animated
+                       completion:(void(^)())completion {
+  
+  [self updateContainerView:self.topContainerView
+                 constraint:self.topContainerViewHeightConstraint
+                     height:self.topContainerViewHeightConstraintConstant
+                     hidden:hidden
+                   animated:animated   
+                 completion:nil];
 }
 
 - (void)setTopContentView:(UIView *)contentView {
@@ -191,6 +223,90 @@ static CGFloat _animationDuration = 0.25f;
             completion:completion];
 }
 
+#pragma mark -- show/hide container view
+
+- (void)updateContainerView:(UIView *)containerView
+                 constraint:(NSLayoutConstraint *)constraint
+                     height:(CGFloat)maxHeight
+                     hidden:(BOOL)hidden
+                   animated:(BOOL)animated
+                 completion:(void(^)())externalCompletion {
+  
+  if (containerView == nil || constraint == nil) { return; }
+  
+  if (hidden) {
+    if (constraint.constant == 0) {
+      if (externalCompletion) { externalCompletion(); }
+      return;
+    }
+    [self hideContainerView:containerView
+                 constraint:constraint
+                   animated:animated
+                 completion:externalCompletion];
+  } else {
+    if (constraint.constant == maxHeight) {
+      if (externalCompletion) { externalCompletion(); }
+      return;
+    }
+    [self showContainerView:containerView
+                 constraint:constraint
+                     height:maxHeight
+                   animated:animated
+                 completion:externalCompletion];
+  }
+}
+
+- (void)showContainerView:(UIView *)containerView\
+               constraint:(NSLayoutConstraint *)constraint
+                   height:(CGFloat)maxHeight
+                 animated:(BOOL)animated
+               completion:(void(^)())externalCompletion {
+  
+  __weak __typeof(constraint) weakConstraint = constraint;
+  __weak __typeof(self.view) weakView = self.view;
+  
+  void (^animations)() = ^{
+    __weak __typeof(weakConstraint) strongConstraint = weakConstraint;
+    __weak __typeof(weakView) strongView = weakView;
+    strongConstraint.constant = maxHeight;
+    [strongView layoutIfNeeded];
+  };
+    
+  void (^completion)(BOOL) = ^(BOOL finished) {
+    if (externalCompletion) { externalCompletion(); }
+  };
+      
+  [UIView animateWithDuration:_animationDuration
+                   animations:animations
+                   completion:completion];
+}
+
+- (void)hideContainerView:(UIView *)containerView
+               constraint:(NSLayoutConstraint *)constraint
+                 animated:(BOOL)animated
+               completion:(void(^)())externalCompletion {
+  
+  __weak __typeof(constraint) weakConstraint = constraint;
+  __weak __typeof(self.view) weakView = self.view;
+  
+  void (^animations)() = ^{
+    __weak __typeof(weakConstraint) strongConstraint = weakConstraint;
+    __weak __typeof(weakView) strongView = weakView;
+    strongConstraint.constant = 0.0f;
+    [strongView layoutIfNeeded];
+  };
+  
+  void (^completion)(BOOL) = ^(BOOL finished) {
+    if (externalCompletion) { externalCompletion(); }
+  };
+  
+  [UIView animateWithDuration:_animationDuration
+                   animations:animations
+                   completion:completion];
+}
+
+#pragma mark -- Set Content View
+
 - (void)setContentView:(UIView *)contentView
          containerView:(UIView *)containerView
       heightConstraint:(NSLayoutConstraint *)heightConstraint
@@ -201,14 +317,14 @@ static CGFloat _animationDuration = 0.25f;
   CGFloat animationDuration = animated ? _animationDuration : 0.0f;
   
   if (contentView == nil) {
-    [self hideContainerView:containerView
-           heightConstraint:heightConstraint
-          animationDuration:animationDuration
-                 completion:externalCompletion];
+    [self removeContainerViewSubviews:containerView
+                     heightConstraint:heightConstraint
+                    animationDuration:animationDuration
+                           completion:externalCompletion];
     return;
   }
   
-  if (containerView.subviews.count == 0) {
+  if (heightConstraint.constant == 0.0f) {
     [self setNewContentView:contentView
               containerView:containerView
            heightConstraint:heightConstraint
@@ -225,10 +341,10 @@ static CGFloat _animationDuration = 0.25f;
                        completion:externalCompletion];
 }
 
-- (void)hideContainerView:(UIView *)containerView
-         heightConstraint:(NSLayoutConstraint *)heightConstraint
-        animationDuration:(CGFloat)animationDuration
-               completion:(void(^)())externalCompletion {
+- (void)removeContainerViewSubviews:(UIView *)containerView
+                   heightConstraint:(NSLayoutConstraint *)heightConstraint
+                  animationDuration:(CGFloat)animationDuration
+                         completion:(void(^)())externalCompletion {
   
   __weak __typeof(self.view) weakView = self.view;
   __weak __typeof(heightConstraint) weakConstraint = heightConstraint;
@@ -249,13 +365,7 @@ static CGFloat _animationDuration = 0.25f;
     if (externalCompletion) { externalCompletion(); }
   };
   
-  if (animationDuration > 0) {
-    [UIView animateWithDuration:animationDuration animations:animations completion:completion];
-    
-  } else {
-    animations();
-    completion(YES);
-  }
+  [UIView animateWithDuration:animationDuration animations:animations completion:completion];
 }
 
 - (void)setNewContentView:(UIView *)contentView
@@ -285,14 +395,8 @@ static CGFloat _animationDuration = 0.25f;
   void (^completion)(BOOL) = ^(BOOL completion) {
     if (externalCompletion) { externalCompletion(); }
   };
-
-  if (animationDuration > 0) {
-    [UIView animateWithDuration:animationDuration animations:animations completion:completion];
-    
-  } else {
-    animations();
-    completion(YES);
-  }
+  
+  [UIView animateWithDuration:animationDuration animations:animations completion:completion];
 }
 
 - (void)replaceWithNewContentView:(UIView *)contentView
@@ -324,13 +428,7 @@ static CGFloat _animationDuration = 0.25f;
     if (externalCompletion) { externalCompletion(); }
   };
   
-  if (animationDuration > 0) {
-    [UIView animateWithDuration:animationDuration animations:animations completion:completion];
-    
-  } else {
-    animations();
-    completion(YES);
-  }
+  [UIView animateWithDuration:animationDuration animations:animations completion:completion];
 }
 
 - (void)removeSubviewsFromParentView:(NSArray<UIView *> *)subviews {
