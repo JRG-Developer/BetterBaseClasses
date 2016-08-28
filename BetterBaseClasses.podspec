@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = "7.0"
   s.name         = "BetterBaseClasses"
-  s.version      = "1.13.0"
+  s.version      = "1.14.0"
   s.summary      = "BetterBaseClasses are abstract, base classes meant to be subclassed. They make creating CocoaPods easier."
   s.homepage     = "https://github.com/JRG-Developer/BetterBaseClasses"
   s.license      = { :type => "MIT", :file => "LICENSE" }
@@ -13,12 +13,17 @@ Pod::Spec.new do |s|
 
   s.source_files = "BetterBaseClasses/Library/BetterBaseClasses.h"
 
+  s.subspec 'Categories' do |ss|
+    ss.source_files = "BetterBaseClasses/Library/BetterBaseCategories.h", "BetterBaseClasses/Library/Categories/*.{h,m}"
+  end
+
   s.subspec 'Constants' do |ss|
     ss.source_files = "BetterBaseClasses/Library/BetterBaseConstants.h", "BetterBaseClasses/Library/Constants/*.{h,m}"
   end
 
   s.subspec 'Controllers' do |ss|
     ss.source_files = "BetterBaseClasses/Library/BetterBaseControllers.h", "BetterBaseClasses/Library/Controllers/*.{h,m}"
+    ss.dependency 'BetterBaseClasses/Categories'
     ss.dependency 'BetterBaseClasses/Constants'
   end
 
