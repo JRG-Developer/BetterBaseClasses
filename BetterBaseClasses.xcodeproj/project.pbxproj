@@ -47,6 +47,7 @@
 		42996FE81D6CE80C00788736 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42996FE71D6CE80C00788736 /* BaseTabBarController.m */; };
 		42996FEC1D6CEE8C00788736 /* BaseNavigationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42996FEB1D6CEE8C00788736 /* BaseNavigationControllerTests.m */; };
 		42996FEE1D6CEE9B00788736 /* BaseTabBarControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42996FED1D6CEE9B00788736 /* BaseTabBarControllerTests.m */; };
+		42A19C501D738DB000FA8CC3 /* UIView+AnimateIfNeeded.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A19C4F1D738DB000FA8CC3 /* UIView+AnimateIfNeeded.m */; };
 		42AE11B71D63CB0D00AC18ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AE11B61D63CB0D00AC18ED /* main.m */; };
 		9C6A0C00DB3EA5B42F983AD5 /* libPods-BetterBaseClasses.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08330038461BB31AB888321A /* libPods-BetterBaseClasses.a */; };
 /* End PBXBuildFile section */
@@ -141,6 +142,9 @@
 		42996FE71D6CE80C00788736 /* BaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
 		42996FEB1D6CEE8C00788736 /* BaseNavigationControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationControllerTests.m; sourceTree = "<group>"; };
 		42996FED1D6CEE9B00788736 /* BaseTabBarControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarControllerTests.m; sourceTree = "<group>"; };
+		42A19C4E1D738DB000FA8CC3 /* UIView+AnimateIfNeeded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimateIfNeeded.h"; sourceTree = "<group>"; };
+		42A19C4F1D738DB000FA8CC3 /* UIView+AnimateIfNeeded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimateIfNeeded.m"; sourceTree = "<group>"; };
+		42A19C511D738ED300FA8CC3 /* BetterBaseCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BetterBaseCategories.h; sourceTree = "<group>"; };
 		42AE11B61D63CB0D00AC18ED /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Demo/main.m; sourceTree = "<group>"; };
 		72C6F54042C574F356591495 /* Pods-BetterBaseClassesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBaseClassesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BetterBaseClassesTests/Pods-BetterBaseClassesTests.release.xcconfig"; sourceTree = "<group>"; };
 		75555012B9817BAC390CFCF0 /* Pods-BetterBaseClasses-BetterBaseClassesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BetterBaseClasses-BetterBaseClassesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BetterBaseClasses-BetterBaseClassesTests/Pods-BetterBaseClasses-BetterBaseClassesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				42086DAF1D47CB3300C0E01F /* ~Public Headers */,
+				42A19C4D1D738D1800FA8CC3 /* Categories */,
 				42086D5A1D47C92400C0E01F /* Constants */,
 				42086D5D1D47C92400C0E01F /* Controllers */,
 				42086D6E1D47C92400C0E01F /* Views */,
@@ -412,10 +417,11 @@
 		42086DAF1D47CB3300C0E01F /* ~Public Headers */ = {
 			isa = PBXGroup;
 			children = (
+				42086D591D47C92400C0E01F /* BetterBaseViews.h */,
+				42A19C511D738ED300FA8CC3 /* BetterBaseCategories.h */,
 				42086D561D47C92400C0E01F /* BetterBaseClasses.h */,
 				42086D571D47C92400C0E01F /* BetterBaseConstants.h */,
 				42086D581D47C92400C0E01F /* BetterBaseControllers.h */,
-				42086D591D47C92400C0E01F /* BetterBaseViews.h */,
 			);
 			name = "~Public Headers";
 			sourceTree = "<group>";
@@ -519,6 +525,15 @@
 				42996FED1D6CEE9B00788736 /* BaseTabBarControllerTests.m */,
 			);
 			name = UITabBarController;
+			sourceTree = "<group>";
+		};
+		42A19C4D1D738D1800FA8CC3 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				42A19C4E1D738DB000FA8CC3 /* UIView+AnimateIfNeeded.h */,
+				42A19C4F1D738DB000FA8CC3 /* UIView+AnimateIfNeeded.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		42AE11B81D63CB1A00AC18ED /* AppDelegate */ = {
@@ -797,6 +812,7 @@
 				42086D811D47C92400C0E01F /* UIViewController+BetterBaseClasses.m in Sources */,
 				42086D7B1D47C92400C0E01F /* BaseTableViewController.m in Sources */,
 				42086D821D47C92400C0E01F /* BaseTableViewCell.m in Sources */,
+				42A19C501D738DB000FA8CC3 /* UIView+AnimateIfNeeded.m in Sources */,
 				42086D831D47C92400C0E01F /* BaseView.m in Sources */,
 				4284E86D1D6E3ED900E11007 /* SetContentViewContainerViewController.swift in Sources */,
 				42086D7F1D47C92400C0E01F /* DynamicFontViewController.m in Sources */,

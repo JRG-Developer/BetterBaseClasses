@@ -24,7 +24,7 @@
 //  THE SOFTWARE.
 
 #import "BaseContainerViewController.h"
-
+#import "UIView+AnimateIfNeeded.h"
 
 @interface BaseContainerViewController()
 @property (assign, nonatomic) CGFloat bottomContainerViewHeightConstraintConstant;
@@ -42,6 +42,10 @@
 
 + (void)setAnimationDuration:(CGFloat)animationDuration {
   _animationDuration = animationDuration;
+}
+
+- (CGFloat)animationDurationFor:(BOOL)animated {
+  return animated ? _animationDuration : 0.0f;
 }
 
 static CGFloat _animationDuration = 0.20f;
@@ -275,10 +279,9 @@ static CGFloat _animationDuration = 0.20f;
   void (^completion)(BOOL) = ^(BOOL finished) {
     if (externalCompletion) { externalCompletion(); }
   };
-      
-  [UIView animateWithDuration:_animationDuration
-                   animations:animations
-                   completion:completion];
+                 
+  CGFloat animationDuration = [self animationDurationFor:animated];
+  [UIView animateIfNeededWithDuration:animationDuration animations:animations completion:completion];
 }
 
 - (void)hideContainerView:(UIView *)containerView
@@ -300,9 +303,8 @@ static CGFloat _animationDuration = 0.20f;
     if (externalCompletion) { externalCompletion(); }
   };
   
-  [UIView animateWithDuration:_animationDuration
-                   animations:animations
-                   completion:completion];
+  CGFloat animationDuration = [self animationDurationFor:animated];
+  [UIView animateIfNeededWithDuration:animationDuration animations:animations completion:completion];
 }
 
 #pragma mark -- Set Content View
@@ -314,12 +316,11 @@ static CGFloat _animationDuration = 0.20f;
               animated:(BOOL) animated
             completion:(void(^)())externalCompletion {
   
-  CGFloat animationDuration = animated ? _animationDuration : 0.0f;
   
   if (contentView == nil) {
     [self removeContainerViewSubviews:containerView
                      heightConstraint:heightConstraint
-                    animationDuration:animationDuration
+                             animated:animated
                            completion:externalCompletion];
     return;
   }
@@ -329,7 +330,7 @@ static CGFloat _animationDuration = 0.20f;
               containerView:containerView
            heightConstraint:heightConstraint
                      height:maxHeight
-          animationDuration:animationDuration
+                   animated:animated
                  completion:externalCompletion];
     return;
   }
@@ -337,13 +338,13 @@ static CGFloat _animationDuration = 0.20f;
   [self replaceWithNewContentView:contentView
                     containerView:containerView
                            height:maxHeight
-                animationDuration:animationDuration
+                         animated:animated
                        completion:externalCompletion];
 }
 
 - (void)removeContainerViewSubviews:(UIView *)containerView
                    heightConstraint:(NSLayoutConstraint *)heightConstraint
-                  animationDuration:(CGFloat)animationDuration
+                           animated:(BOOL)animated
                          completion:(void(^)())externalCompletion {
   
   __weak __typeof(self.view) weakView = self.view;
@@ -365,14 +366,15 @@ static CGFloat _animationDuration = 0.20f;
     if (externalCompletion) { externalCompletion(); }
   };
   
-  [UIView animateWithDuration:animationDuration animations:animations completion:completion];
+  CGFloat animationDuration = [self animationDurationFor:animated];
+  [UIView animateIfNeededWithDuration:animationDuration animations:animations completion:completion];
 }
 
 - (void)setNewContentView:(UIView *)contentView
             containerView:(UIView *)containerView
          heightConstraint:(NSLayoutConstraint *)heightConstraint
                    height:(CGFloat)maxHeight
-        animationDuration:(CGFloat)animationDuration
+                 animated:(BOOL)animated
                completion:(void(^)())externalCompletion {
   
   contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -396,13 +398,14 @@ static CGFloat _animationDuration = 0.20f;
     if (externalCompletion) { externalCompletion(); }
   };
   
-  [UIView animateWithDuration:animationDuration animations:animations completion:completion];
+  CGFloat animationDuration = [self animationDurationFor:animated];
+  [UIView animateIfNeededWithDuration:animationDuration animations:animations completion:completion];
 }
 
 - (void)replaceWithNewContentView:(UIView *)contentView
                     containerView:(UIView *)containerView
                            height: (CGFloat)maxHeight
-                animationDuration:(CGFloat)animationDuration
+                         animated:(BOOL)animated
                        completion:(void(^)())externalCompletion {
   
   NSArray<UIView *> *subviews = [containerView.subviews copy]; // shallow copy
@@ -428,7 +431,8 @@ static CGFloat _animationDuration = 0.20f;
     if (externalCompletion) { externalCompletion(); }
   };
   
-  [UIView animateWithDuration:animationDuration animations:animations completion:completion];
+  CGFloat animationDuration = [self animationDurationFor:animated];
+  [UIView animateIfNeededWithDuration:animationDuration animations:animations completion:completion];
 }
 
 - (void)removeSubviewsFromParentView:(NSArray<UIView *> *)subviews {
