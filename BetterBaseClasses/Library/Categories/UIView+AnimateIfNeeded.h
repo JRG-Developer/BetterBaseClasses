@@ -44,6 +44,22 @@ NS_ASSUME_NONNULL_BEGIN
                          animations:(void (^)(void))animations
                          completion:(void (^ __nullable)(BOOL finished))completion;
 
+/**
+ *  Use this method to perform animations ONLY if the `duration` is greater than zero. Otherwise,
+ *  the animations and completion block are called immediately, without animating.
+ *
+ *  @param duration   The animation duration
+ *  @param delay      The delay before the animation should be performed
+ *  @param options    The animation options
+ *  @param animations The animations to be performed
+ *  @param completion The completion to be performed after the animations
+ */
++ (void)animateIfNeededWithDuration:(NSTimeInterval)duration
+                              delay:(NSTimeInterval)delay
+                            options:(UIViewAnimationOptions)options
+                         animations:(void (^)(void))animations
+                         completion:(void (^ __nullable)(BOOL finished))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

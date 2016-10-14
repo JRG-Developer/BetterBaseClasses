@@ -31,13 +31,24 @@
                          animations:(void (^)(void))animations
                          completion:(void (^ __nullable)(BOOL finished))completion {
   
+  [self animateIfNeededWithDuration:duration delay:0 options:0 
+                         animations:animations completion:completion];
+}
+
++ (void)animateIfNeededWithDuration:(NSTimeInterval)duration
+                              delay:(NSTimeInterval)delay
+                            options:(UIViewAnimationOptions)options
+                         animations:(void (^)(void))animations
+                         completion:(void (^ __nullable)(BOOL finished))completion {
+  
   if (duration <= 0) {
     animations();
     if (completion) { completion(YES); }
     return;
   }
   
-  [UIView animateWithDuration:duration animations:animations completion:completion];
+  [UIView animateWithDuration:duration delay:delay options:options
+                   animations:animations completion:completion];
 }
 
 @end

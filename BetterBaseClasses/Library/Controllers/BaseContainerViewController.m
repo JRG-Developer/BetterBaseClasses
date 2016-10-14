@@ -367,7 +367,9 @@ static CGFloat _animationDuration = 0.20f;
   };
   
   CGFloat animationDuration = [self animationDurationFor:animated];
-  [UIView animateIfNeededWithDuration:animationDuration animations:animations completion:completion];
+  [UIView animateIfNeededWithDuration:animationDuration delay:0
+                              options:UIViewAnimationOptionCurveLinear
+                           animations:animations completion:completion];
 }
 
 - (void)setNewContentView:(UIView *)contentView
@@ -399,7 +401,9 @@ static CGFloat _animationDuration = 0.20f;
   };
   
   CGFloat animationDuration = [self animationDurationFor:animated];
-  [UIView animateIfNeededWithDuration:animationDuration animations:animations completion:completion];
+  [UIView animateIfNeededWithDuration:animationDuration delay:0
+                              options:UIViewAnimationOptionCurveLinear
+                           animations:animations completion:completion];
 }
 
 - (void)replaceWithNewContentView:(UIView *)contentView
@@ -432,7 +436,9 @@ static CGFloat _animationDuration = 0.20f;
   };
   
   CGFloat animationDuration = [self animationDurationFor:animated];
-  [UIView animateIfNeededWithDuration:animationDuration animations:animations completion:completion];
+  [UIView animateIfNeededWithDuration:animationDuration delay:0
+                              options:UIViewAnimationOptionCurveLinear
+                           animations:animations completion:completion];
 }
 
 - (void)removeSubviewsFromParentView:(NSArray<UIView *> *)subviews {
