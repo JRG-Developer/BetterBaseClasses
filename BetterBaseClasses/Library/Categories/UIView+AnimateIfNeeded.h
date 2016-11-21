@@ -28,7 +28,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  `UIView+
+ *  `UIView+AnimateIfNeeded` provides convenience methods to perform animations if needed (`duration` greater than zero).
  */
 @interface UIView (AnimateIfNeeded)
 

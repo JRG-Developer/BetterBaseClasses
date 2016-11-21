@@ -12,53 +12,53 @@ class SetContentViewContainerViewController: BaseContainerViewController {
 
   // MARK: - Actions
   
-  @IBAction func hideShowBottomViewPressed(sender: AnyObject) {
+  @IBAction func hideShowBottomViewPressed(_ sender: AnyObject) {
     
     let hidden = bottomContainerViewHeightConstraint!.constant != 0
     setBottomContainerViewHidden(hidden, animated: true, completion: nil)
   }
   
-  @IBAction func hideShowTopViewPressed(sender: AnyObject) {
+  @IBAction func hideShowTopViewPressed(_ sender: AnyObject) {
     let hidden = topContainerViewHeightConstraint!.constant != 0
     setTopContainerViewHidden(hidden, animated: true, completion: nil)
   }
   
-  @IBAction func replaceBottomViewPressed(sender: AnyObject) {
+  @IBAction func replaceBottomViewPressed(_ sender: AnyObject) {
   
     let contentView = UIView()
-    contentView.backgroundColor = UIColor.blueColor()
+    contentView.backgroundColor = UIColor.blue
     setBottomContentView(contentView)
   }
   
-  @IBAction func replaceTopViewPressed(sender: AnyObject) {
+  @IBAction func replaceTopViewPressed(_ sender: AnyObject) {
     let contentView = UIView()
-    contentView.backgroundColor = UIColor.blueColor()
+    contentView.backgroundColor = UIColor.blue
     setTopContentView(contentView)
   }
   
-  @IBAction func toggleTopViewPressed(sender: AnyObject) {
+  @IBAction func toggleTopViewPressed(_ sender: AnyObject) {
     
     guard topContainerView!.subviews.isEmpty else {
       setTopContentView(nil, animated: true, completion: nil)
       return
     }
     let contentView = UIView()
-    contentView.backgroundColor = UIColor.greenColor()
+    contentView.backgroundColor = UIColor.green
     setTopContentView(contentView)
   }
   
-  @IBAction func toggleBottomViewPressed(sender: AnyObject) {
+  @IBAction func toggleBottomViewPressed(_ sender: AnyObject) {
     
     guard bottomContainerView!.subviews.isEmpty else {
       setBottomContentView(nil)
       return
     }
     let contentView = UIView()
-    contentView.backgroundColor = UIColor.redColor()
+    contentView.backgroundColor = UIColor.red
     setBottomContentView(contentView)
   }
   
-  @IBAction func toggleBothPressed(sender: AnyObject) {
+  @IBAction func toggleBothPressed(_ sender: AnyObject) {
     toggleTopViewPressed(sender)
     toggleBottomViewPressed(sender)
   }

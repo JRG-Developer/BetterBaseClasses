@@ -12,44 +12,44 @@ class SetViewControllerContainerViewController: BaseContainerViewController {
   
   // MARK: - Actions
   
-  @IBAction func toggleTopViewControllerPressed(sender: AnyObject) {
+  @IBAction func toggleTopViewControllerPressed(_ sender: AnyObject) {
   
     guard topViewController == nil else {
-      setTopViewController(nil, animated: true, completion: nil)
+      setTop(nil, animated: true, completion: nil)
       return
     }
     
     let viewController = UIViewController()
-    viewController.view.backgroundColor = UIColor.greenColor()
-    setTopViewController(viewController, animated: true, completion: nil)
+    viewController.view.backgroundColor = UIColor.green
+    setTop(viewController, animated: true, completion: nil)
   }
   
-  @IBAction func replaceTopViewControllerPressed(sender: AnyObject) {
+  @IBAction func replaceTopViewControllerPressed(_ sender: AnyObject) {
     
     let viewController = UIViewController()
-    viewController.view.backgroundColor = UIColor.blueColor()
-    setTopViewController(viewController, animated: true, completion: nil)
+    viewController.view.backgroundColor = UIColor.blue
+    setTop(viewController, animated: true, completion: nil)
   }
   
-  @IBAction func toggleBottomViewControllerPressed(sender: AnyObject) {
+  @IBAction func toggleBottomViewControllerPressed(_ sender: AnyObject) {
     
     guard bottomViewController == nil else {
-      setBottomViewController(nil, animated: true, completion: nil)
+      setBottom(nil, animated: true, completion: nil)
       return
     }
     
     let viewController = UIViewController()
-    viewController.view.backgroundColor = UIColor.redColor()
-    setBottomViewController(viewController, animated: true, completion: nil)
+    viewController.view.backgroundColor = UIColor.red
+    setBottom(viewController, animated: true, completion: nil)
   }
   
-  @IBAction func replaceBottomViewControllerPressed(sender: AnyObject) {
+  @IBAction func replaceBottomViewControllerPressed(_ sender: AnyObject) {
     let viewController = UIViewController()
-    viewController.view.backgroundColor = UIColor.blueColor()
-    setBottomViewController(viewController, animated: true, completion: nil)
+    viewController.view.backgroundColor = UIColor.blue
+    setBottom(viewController, animated: true, completion: nil)
   }
   
-  @IBAction func toggleBothViewControllersPresed(sender: AnyObject) {
+  @IBAction func toggleBothViewControllersPresed(_ sender: AnyObject) {
     
     toggleTopViewControllerPressed(sender)
     toggleBottomViewControllerPressed(sender)
