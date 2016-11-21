@@ -107,7 +107,7 @@
 - (void)test___commonInit___calls_configureNavigationBar {
   
   // given
-  sut = [sut init];
+  sut = [sut init];  
   OCMExpect([partialMock configureToolbar:sut]);
   
   // when

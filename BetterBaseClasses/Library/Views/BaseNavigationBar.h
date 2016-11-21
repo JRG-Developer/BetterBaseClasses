@@ -27,13 +27,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
 /**
  *  @brief  `BaseNavigationBar` is an abstract, base class meant to be subclassed instead of `UINavigationBar`.
  *
- *  @dicussion  This class is designed to be used with the `UIView+BetterBaseClasses` category, which adds convenience class instantiation methods.
+ *  @dicussion  This class is designed to be used with the `UIView+BetterBaseClasses` category, which adds convenience class instantiation methods and calls `commonInit` from the `UINavigationBar` designated initializers.
  */
 @interface BaseNavigationBar : UINavigationBar
+
+#pragma mark - Configuration
 
 /**
  *  @brief  Use this method to configure/theme the navigation bar.
@@ -42,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param navigationBar The navigation bar
  */
-- (void)configureNavigationBar:(UINavigationBar *)navigationBar NS_SWIFT_NAME(configure(_:));
++ (void)configureNavigationBar:(UINavigationBar *)navigationBar NS_SWIFT_NAME(configure(_:));
   
 @end
 

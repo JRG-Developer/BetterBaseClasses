@@ -25,12 +25,16 @@
 
 #import "UIView+BetterBaseClasses.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  @brief  `BaseToolbar` is an abstract, base class meant to be subclassed instead of `UIToolbar`.
  *
- *  @dicussion  This class is designed to be used with the `UIView+BetterBaseClasses` category, which adds convenience class instantiation methods.
+ *  @dicussion  This class is designed to be used with the `UIView+BetterBaseClasses` category, which adds convenience class instantiation methods and calls `commonInit` from the `UIToolbar` designated initializers.
  */
 @interface BaseToolbar : UIToolbar
+
+#pragma mark - Configuration
 
 /**
  *  @brief  Use this method to configure/theme the toolbar.
@@ -39,6 +43,8 @@
  *
  *  @param toolbar The toolbar
  */
-- (void)configureToolbar:(UIToolbar *)toolbar NS_SWIFT_NAME(configure(_:));
++ (void)configureToolbar:(UIToolbar *)toolbar NS_SWIFT_NAME(configure(_:));
   
 @end
+
+NS_ASSUME_NONNULL_END

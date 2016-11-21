@@ -50,10 +50,13 @@
   
 - (void)commonInit {
   [super commonInit];
-  [self configureNavigationBar:self];
-}
   
-- (void)configureNavigationBar:(UINavigationBar *)navigationBar {
+  [[self class] configureNavigationBar:self];    
+}
+
+#pragma mark - Configuration
+
++ (void)configureNavigationBar:(UINavigationBar *)navigationBar {
   // meant to be overriden by subclasses
 }
   

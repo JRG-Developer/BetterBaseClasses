@@ -50,10 +50,12 @@
   
 - (void)commonInit {
   [super commonInit];
-  [self configureToolbar:self];
+  [[self class] configureToolbar:self];
 }
 
-- (void)configureToolbar:(UIToolbar *)toolbar {
+#pragma mark - Configuration
+
++ (void)configureToolbar:(UIToolbar *)toolbar {
   // meant to be overriden by subclasses
 }
 
