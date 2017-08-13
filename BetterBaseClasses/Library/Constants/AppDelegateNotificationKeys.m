@@ -27,4 +27,10 @@
 
 NSString * const ApplicationDidRegisterUserNotificationSettings = @"ApplicationDidRegisterUserNotificationSettings";
 
+NSString * const ApplicationDidRegisterForUserNotificationSettingsNotification =
+  @"ApplicationDidRegisterUserNotificationSettings";
+
+NSString * const ApplicationDidRegisterForRemoteNotificationsNotification =
+  @"ApplicationDidRegisterForRemoteNotifications";
+
 NSString * const ApplicationDidReceiveLocalNotification = @"ApplicationDidReceiveLocalNotification";

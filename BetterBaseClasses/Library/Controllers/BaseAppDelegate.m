@@ -33,7 +33,13 @@
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
   
   NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-  [notificationCenter postNotificationName:ApplicationDidRegisterUserNotificationSettings object:notificationSettings];
+  [notificationCenter postNotificationName:ApplicationDidRegisterForUserNotificationSettingsNotification object:notificationSettings];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+  
+  NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+  [notificationCenter postNotificationName:ApplicationDidRegisterForRemoteNotificationsNotification object:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {

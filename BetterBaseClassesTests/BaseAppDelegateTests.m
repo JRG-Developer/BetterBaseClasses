@@ -65,14 +65,33 @@
   
   // given
   UIApplication *application = nil;
-  UIUserNotificationSettings *notificationSetting = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert
-                                                                                      categories:nil];
+  UIUserNotificationSettings *notificationSetting = [UIUserNotificationSettings
+                                                     settingsForTypes:UIUserNotificationTypeAlert
+                                                     categories:nil];
 
   [self givenMockNotificationCenter];
-  OCMExpect([notificationCenter postNotificationName:ApplicationDidRegisterUserNotificationSettings object:notificationSetting]);
+  OCMExpect([notificationCenter postNotificationName:ApplicationDidRegisterForUserNotificationSettingsNotification
+                                              object:notificationSetting]);
   
   // when
   [sut application:application didRegisterUserNotificationSettings:notificationSetting];
+  
+  // then
+  OCMVerifyAll(notificationCenter);
+}
+
+- (void)test___application_didRegisterForRemoteNotificationsWithDeviceToken___postsNotification {
+  
+  // given
+  UIApplication *application = nil;
+  NSData *data = [NSData data];
+  
+  [self givenMockNotificationCenter];
+  OCMExpect([notificationCenter postNotificationName:ApplicationDidRegisterForRemoteNotificationsNotification
+                                              object:data]);
+  
+  // when
+  [sut application:application didRegisterForRemoteNotificationsWithDeviceToken:data];
   
   // then
   OCMVerifyAll(notificationCenter);
@@ -85,7 +104,8 @@
   UILocalNotification *notification = [[UILocalNotification alloc] init];
   
   [self givenMockNotificationCenter];
-  OCMExpect([notificationCenter postNotificationName:ApplicationDidReceiveLocalNotification object:notification]);
+  OCMExpect([notificationCenter postNotificationName:ApplicationDidReceiveLocalNotification
+                                              object:notification]);
   
   // when
   [sut application:application didReceiveLocalNotification:notification];

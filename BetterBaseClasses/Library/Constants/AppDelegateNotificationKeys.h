@@ -28,16 +28,36 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  @brief  This notification is sent when the app delegate is notified that the user has registered for notification settings.
+ * @brief  This notification is sent when the app delegate is notified that the user has registered for notification settings.
  *
- *  @discusission  This notification is sent within `application: didRegisterUserNotificationSettings:`. The object is the `notificationSettings`.
+ * @discusission  This notification is sent within `application: didRegisterUserNotificationSettings:`.
+ *
+ * The object is the `notificationSettings`.
  */
-UIKIT_EXTERN NSString * const ApplicationDidRegisterUserNotificationSettings;
+UIKIT_EXTERN NSString * const ApplicationDidRegisterUserNotificationSettings __deprecated_msg("Use ApplicationDidRegisterForUserNotificationSettingsNotification instead.");
 
 /**
- *  @brief  This notification is sent when the app delegate receives a call to `application: didReceiveLocalNotification:`.
+ * @brief  This notification is sent when the app delegate is notified that the user has registered for notification settings.
  *
- *  @discussion  The object is the `UILocalNotification` object itself.
+ * @discusission  This notification is sent within `application: didRegisterUserNotificationSettings:`.
+ *
+ * The object is the `notificationSettings`.
+ */
+UIKIT_EXTERN NSString * const ApplicationDidRegisterForUserNotificationSettingsNotification;
+
+/**
+ * @brief  This notification is sent when the app delegate is notified that the user has registered for remote notifications.
+ *
+ * @discusission  This notification is sent within `application: didRegisterForRemoteNotificationsWithDeviceToken:`.
+ *
+ * The `object` contains the `deviceToken` data that was received from APNS.
+ */
+UIKIT_EXTERN NSString * const ApplicationDidRegisterForRemoteNotificationsNotification;
+
+/**
+ * @brief  This notification is sent when the app delegate receives a call to `application: didReceiveLocalNotification:`.
+ *
+ * @discussion  The object is the `UILocalNotification` object itself.
  */
 UIKIT_EXTERN NSString * const ApplicationDidReceiveLocalNotification;
 
