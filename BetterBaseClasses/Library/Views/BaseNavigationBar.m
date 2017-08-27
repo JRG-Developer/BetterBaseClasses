@@ -56,6 +56,12 @@
 
 #pragma mark - Configuration
 
++ (void)configureAppearProxy {
+  
+  UINavigationBar *navigationBar = [UINavigationBar appearance];
+  [self configureNavigationBar:navigationBar];
+}
+  
 + (void)configureNavigationBar:(UINavigationBar *)navigationBar {
   // meant to be overriden by subclasses
 }

@@ -37,6 +37,13 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Configuration
 
 /**
+ *  @brief  Use this method to configure/theme the appearance proxy, `[UINavigationBar appearance]`.
+ *
+ *  @discussion  This method passes `[UINavigationBar appearance]` to `configureNavigationBar:`.
+ */
++ (void)configureAppearProxy;
+  
+/**
  *  @brief  Use this method to configure/theme the navigation bar.
  *  
  *  @discussion  This method is called within `commonInit` and meant to be overriden by subclasses.

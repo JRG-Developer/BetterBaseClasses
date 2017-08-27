@@ -35,6 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BaseToolbar : UIToolbar
 
 #pragma mark - Configuration
+  
+/**
+ *  @brief  Use this method to configure/theme the appearance proxy, `[UIToolbar appearance]`.
+ *
+ *  @discussion  This method passes `[UIToolbar appearance]` to `configureToolbar:`.
+ */
++ (void)configureAppearProxy;
 
 /**
  *  @brief  Use this method to configure/theme the toolbar.

@@ -54,6 +54,11 @@
 }
 
 #pragma mark - Configuration
+  
++ (void)configureAppearProxy {
+  UIToolbar *toolbar = [UIToolbar appearance];
+  [self configureToolbar:toolbar];
+}
 
 + (void)configureToolbar:(UIToolbar *)toolbar {
   // meant to be overriden by subclasses
