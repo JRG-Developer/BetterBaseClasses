@@ -76,7 +76,7 @@ static CGFloat _animationDuration = 0.20f;
 
 - (void)setBottomViewController:(UIViewController *)viewController
                        animated:(BOOL) animated
-                     completion:(void (^)())externalCompletion {
+                     completion:(void (^)(void))externalCompletion {
   
   if (_bottomViewController == viewController) { return; }
   
@@ -86,7 +86,7 @@ static CGFloat _animationDuration = 0.20f;
   __weak __typeof(_bottomViewController) weakExistingViewController = _bottomViewController;
   __weak __typeof(viewController) weakViewController = viewController;
   
-  void (^completionClosure)() = ^ {
+    void (^completionClosure)(void) = ^ {
     __strong __typeof(weakSelf) strongSelf = weakSelf;
     __strong __typeof(weakExistingViewController) strongBottomViewController = weakExistingViewController;
     __strong __typeof(weakViewController) strongViewController = weakViewController;
@@ -113,7 +113,7 @@ static CGFloat _animationDuration = 0.20f;
 
 - (void)setTopViewController:(UIViewController *)viewController
                     animated:(BOOL)animated
-                  completion:(void (^)())externalCompletion {
+                  completion:(void (^)(void))externalCompletion {
   
   if (_topViewController == viewController) { return; }
   
@@ -123,7 +123,7 @@ static CGFloat _animationDuration = 0.20f;
   __weak __typeof(_topViewController) weakTopViewController = _topViewController;
   __weak __typeof(viewController) weakViewController = viewController;
   
-  void (^completionClosure)() = ^ {
+    void (^completionClosure)(void) = ^ {
     __strong __typeof(weakSelf) strongSelf = weakSelf;
     __strong __typeof(weakTopViewController) strongTopViewController = weakTopViewController;
     __strong __typeof(weakViewController) strongViewController = weakViewController;
@@ -168,7 +168,7 @@ static CGFloat _animationDuration = 0.20f;
 
 - (void)setBottomContainerViewHidden:(BOOL)hidden
                             animated:(BOOL)animated
-                          completion:(void(^)())completion {
+                          completion:(void(^)(void))completion {
 
   [self updateContainerView:self.bottomContainerView
                  constraint:self.bottomContainerViewHeightConstraint
@@ -184,7 +184,7 @@ static CGFloat _animationDuration = 0.20f;
 
 - (void)setBottomContentView:(UIView *)contentView
                     animated:(BOOL)animated
-                  completion:(void(^)())completion {
+                  completion:(void(^)(void))completion {
   
   [self setContentView:contentView
          containerView:self.bottomContainerView
@@ -200,7 +200,7 @@ static CGFloat _animationDuration = 0.20f;
 
 - (void)setTopContainerViewHidden:(BOOL)hidden
                          animated:(BOOL)animated
-                       completion:(void(^)())completion {
+                       completion:(void(^)(void))completion {
   
   [self updateContainerView:self.topContainerView
                  constraint:self.topContainerViewHeightConstraint
@@ -216,7 +216,7 @@ static CGFloat _animationDuration = 0.20f;
 
 - (void)setTopContentView:(UIView *)contentView
                  animated:(BOOL)animated
-               completion:(void(^)())completion
+               completion:(void(^)(void))completion
 {
   
   [self setContentView:contentView
@@ -234,7 +234,7 @@ static CGFloat _animationDuration = 0.20f;
                      height:(CGFloat)maxHeight
                      hidden:(BOOL)hidden
                    animated:(BOOL)animated
-                 completion:(void(^)())externalCompletion {
+                 completion:(void(^)(void))externalCompletion {
   
   if (containerView == nil || constraint == nil) { return; }
   
@@ -264,12 +264,12 @@ static CGFloat _animationDuration = 0.20f;
                constraint:(NSLayoutConstraint *)constraint
                    height:(CGFloat)maxHeight
                  animated:(BOOL)animated
-               completion:(void(^)())externalCompletion {
+completion:(void(^)(void))externalCompletion {
   
   __weak __typeof(constraint) weakConstraint = constraint;
   __weak __typeof(self.view) weakView = self.view;
   
-  void (^animations)() = ^{
+    void (^animations)(void) = ^{
     __weak __typeof(weakConstraint) strongConstraint = weakConstraint;
     __weak __typeof(weakView) strongView = weakView;
     strongConstraint.constant = maxHeight;
@@ -287,12 +287,12 @@ static CGFloat _animationDuration = 0.20f;
 - (void)hideContainerView:(UIView *)containerView
                constraint:(NSLayoutConstraint *)constraint
                  animated:(BOOL)animated
-               completion:(void(^)())externalCompletion {
+               completion:(void(^)(void))externalCompletion {
   
   __weak __typeof(constraint) weakConstraint = constraint;
   __weak __typeof(self.view) weakView = self.view;
   
-  void (^animations)() = ^{
+    void (^animations)(void) = ^{
     __weak __typeof(weakConstraint) strongConstraint = weakConstraint;
     __weak __typeof(weakView) strongView = weakView;
     strongConstraint.constant = 0.0f;
@@ -314,7 +314,7 @@ static CGFloat _animationDuration = 0.20f;
       heightConstraint:(NSLayoutConstraint *)heightConstraint
                 height:(CGFloat)maxHeight
               animated:(BOOL) animated
-            completion:(void(^)())externalCompletion {
+            completion:(void(^)(void))externalCompletion {
   
   
   if (contentView == nil) {
@@ -345,12 +345,12 @@ static CGFloat _animationDuration = 0.20f;
 - (void)removeContainerViewSubviews:(UIView *)containerView
                    heightConstraint:(NSLayoutConstraint *)heightConstraint
                            animated:(BOOL)animated
-                         completion:(void(^)())externalCompletion {
+                         completion:(void(^)(void))externalCompletion {
   
   __weak __typeof(self.view) weakView = self.view;
   __weak __typeof(heightConstraint) weakConstraint = heightConstraint;
   
-  void (^animations)() = ^{
+    void (^animations)(void) = ^{
     __strong __typeof(weakView) strongView = weakView;
     __strong __typeof(weakConstraint) strongConstraint = weakConstraint;
     strongConstraint.constant = 0.0f;
@@ -377,7 +377,7 @@ static CGFloat _animationDuration = 0.20f;
          heightConstraint:(NSLayoutConstraint *)heightConstraint
                    height:(CGFloat)maxHeight
                  animated:(BOOL)animated
-               completion:(void(^)())externalCompletion {
+               completion:(void(^)(void))externalCompletion {
   
   contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   contentView.frame = containerView.bounds;
@@ -387,7 +387,7 @@ static CGFloat _animationDuration = 0.20f;
   __weak __typeof(containerView) weakContainerView = containerView;
   __weak __typeof(heightConstraint) weakConstraint = heightConstraint;
   
-  void (^animations)() = ^{
+    void (^animations)(void) = ^{
     __strong __typeof(weakView) strongView = weakView;
     __strong __typeof(weakContainerView) strongContainerView = weakContainerView;
     __strong __typeof(weakConstraint) strongConstraint = weakConstraint;
@@ -410,7 +410,7 @@ static CGFloat _animationDuration = 0.20f;
                     containerView:(UIView *)containerView
                            height: (CGFloat)maxHeight
                          animated:(BOOL)animated
-                       completion:(void(^)())externalCompletion {
+                       completion:(void(^)(void))externalCompletion {
   
   NSArray<UIView *> *subviews = [containerView.subviews copy]; // shallow copy
   __weak __typeof (subviews) weakSubviews = subviews;
@@ -421,7 +421,7 @@ static CGFloat _animationDuration = 0.20f;
   [containerView addSubview:contentView];
   
   
-  void (^animations)() = ^{
+    void (^animations)(void) = ^{
     __strong __typeof(weakSubviews) strongSubviews = weakSubviews;
     for (UIView *subview in strongSubviews) { subview.alpha = 0.0f; }
     contentView.alpha = 1.0;

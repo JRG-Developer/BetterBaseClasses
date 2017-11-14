@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (void)setBottomContainerViewHidden:(BOOL)hidden
                             animated:(BOOL)animated
-                          completion:(nullable void(^)())completion;
+                          completion:(nullable void(^)(void))completion;
 
 /**
  *  @brief  Use this method to set `bottomContainerView`'s "content" view.
@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param animated    Whether or not the change should be animated
  *  @param completion  The block to be called upon completion
  */
-- (void)setBottomContentView:(nullable UIView *)contentView animated:(BOOL)animated completion:(nullable void(^)())completion;
+- (void)setBottomContentView:(nullable UIView *)contentView animated:(BOOL)animated completion:(nullable void(^)(void))completion;
 
 /**
  *  @brief  Use this method to set the `bottomViewController`.
@@ -163,7 +163,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param animated       Whether or not the change should be animated
  *  @param completion     The block to be called upon completion
  */
-- (void)setBottomViewController:(nullable UIViewController *)viewController animated:(BOOL) animated completion:(nullable void(^)())completion;
+- (void)setBottomViewController:(nullable UIViewController *)viewController animated:(BOOL) animated completion:(nullable void(^)(void))completion;
 
 
 #pragma mark - Top Container View Methods
@@ -188,7 +188,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)setTopContainerViewHidden:(BOOL)hidden
                          animated:(BOOL)animated
-                       completion:(nullable void(^)())completion;
+                       completion:(nullable void(^)(void))completion;
 
 /**
  *  @brief  Use this method to set `topContainerView`'s "content" view.
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param animated    Whether or not the change should be animated
  *  @param completion  The block to be called upon completion
  */
-- (void)setTopContentView:(nullable UIView *)contentView animated:(BOOL)animated completion:(nullable void(^)())completion;
+- (void)setTopContentView:(nullable UIView *)contentView animated:(BOOL)animated completion:(nullable void(^)(void))completion;
 
 /**
  *  @brief  Use this method to set the `topViewController`.
@@ -227,7 +227,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param animated       Whether or not the change should be animated
  *  @param completion     The block to be called upon completion
  */
-- (void)setTopViewController:(nullable UIViewController *)viewController animated:(BOOL) animated completion:(nullable void(^)())completion;
+- (void)setTopViewController:(nullable UIViewController *)viewController animated:(BOOL) animated completion:(nullable void(^)(void))completion;
 
 @end
 
